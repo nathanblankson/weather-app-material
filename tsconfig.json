@@ -1,7 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@environment/*": ["environments/*"],
+      "@core/*": ["app/core/*"],
+      "@shared/*": ["app/shared/*"],
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -18,11 +23,6 @@
       "es2018",
       "dom"
     ]
-  },
-  "paths": {
-    "@environment/*": ["environments/*"],
-    "@core/*": ["app/core/*"],
-    "@shared/*": ["app/shared/*"],
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
