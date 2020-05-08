@@ -19,6 +19,11 @@
       "dom"
     ]
   },
+  "paths": {
+    "@environment/*": ["environments/*"],
+    "@core/*": ["app/core/*"],
+    "@shared/*": ["app/shared/*"],
+  },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
