@@ -7,13 +7,15 @@
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
     .home-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      padding-top: 60px;
+      padding-top: 35px;
       margin-bottom: 30px;
-      display: inline-block;
 
       .app-logo {
-        width: 120px;
+        width: 40px;
         margin: 0 auto;
         display: block;
       }
@@ -91,7 +93,6 @@
       width: 60px !important;
       overflow: hidden;
 
-      .home-button,
       .navigation-item-label {
         display: none !important;
       }
