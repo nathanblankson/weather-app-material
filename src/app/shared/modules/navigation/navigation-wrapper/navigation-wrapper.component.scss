@@ -2,7 +2,7 @@
   height: 100%;
 
   .sidenav {
-    width: 250px;
+    width: 200px;
     background-color: #fff;
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
@@ -21,31 +21,6 @@
 
     .mat-toolbar {
       background: inherit;
-    }
-
-    .navigation-list {
-      padding-top: 30px;
-
-      .navigation-item.active {
-        background: #dcf0fb;
-        color: #062639;
-      }
-
-      .navigation-item {
-
-        .mat-icon {
-          margin-right: 5px;
-        }
-
-        .navigation-item-label {
-          padding-top: 2px;
-        }
-      }
-
-      .navigation-divider {
-        color: #dcf0fb;
-        border-color: #dcf0fb;
-      }
     }
   }
 
@@ -105,27 +80,25 @@
     top: 0;
     z-index: 1;
   }
-}
 
-@media screen and (min-width: 768px) {
-  mat-sidenav-content:not(.mat-drawer-opened) {
-    margin-left: 60px;
-  }
+  @media screen and (min-width: 768px) {
 
-  /*left sidenav style override*/
-  mat-sidenav:not(.mat-drawer-opened) {
-    transform: translate3d(0, 0, 0) !important;
-    transition: .4s;
-    visibility: visible !important;
-    width: 60px !important;
-    overflow: hidden;
-  }
+    /*left sidenav style override*/
+    mat-sidenav:not(.mat-drawer-opened) {
+      transform: translate3d(0, 0, 0) !important;
+      transition: .4s;
+      visibility: visible !important;
+      width: 60px !important;
+      overflow: hidden;
 
-  mat-sidenav:not(.mat-drawer-opened) .navigation-item-label {
-    display: none !important;
-  }
+      .home-button,
+      .navigation-item-label {
+        display: none !important;
+      }
+    }
 
-  mat-sidenav:not(.mat-drawer-opened) .home-button {
-    display: none !important;
+    mat-sidenav-content:not(.mat-drawer-opened) {
+      margin-left: 60px;
+    }
   }
 }

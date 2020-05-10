@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material';
 import { map } from 'rxjs/internal/operators/map';
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   selector: 'app-navigation-wrapper',
   templateUrl: './navigation-wrapper.component.html',
   styleUrls: ['./navigation-wrapper.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NavigationWrapperComponent {
   @ViewChild('drawer', { static: false })
