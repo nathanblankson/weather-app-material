@@ -14,6 +14,5 @@ import { ForecastRoutingModule } from './forecast-routing.module';
     NavigationModule,
     ForecastRoutingModule,
   ],
-  exports: [ForecastComponent],
 })
 export class ForecastModule {}

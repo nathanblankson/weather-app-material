@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'forecast',
     loadChildren: './+forecast/forecast.module#ForecastModule',
   },
+  {
+    path: 'settings',
+    loadChildren: './+settings/settings.module#SettingsModule',
+  },
 ];
 
 @NgModule({
