@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { MaterialModule } from '@shared/modules/material/material.module';
 import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { ForecastModule } from '@forcast/forecast.module';
