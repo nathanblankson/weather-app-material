@@ -7,8 +7,17 @@ const routes: Routes = [
     loadChildren: './+forecast/forecast.module#ForecastModule',
   },
   {
+    path: 'favourites',
+    loadChildren: './+favourites/favourites.module#FavouritesModule',
+  },
+  {
     path: 'settings',
     loadChildren: './+settings/settings.module#SettingsModule',
+  },
+  {
+    path: '',
+    redirectTo: 'forecast',
+    pathMatch: 'full',
   },
 ];
 
