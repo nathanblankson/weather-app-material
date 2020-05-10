@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { MaterialModule } from '@shared/modules/material/material.module';
 import { NavigationModule } from '@shared/modules/navigation/navigation.module';
+import { ForecastModule } from '@forcast/forecast.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { NavigationModule } from '@shared/modules/navigation/navigation.module';
     AppRoutingModule,
     MaterialModule,
     NavigationModule,
+    ForecastModule,
   ],
   bootstrap: [AppComponent],
 })
