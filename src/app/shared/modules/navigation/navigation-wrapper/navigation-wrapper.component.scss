@@ -27,6 +27,11 @@
   }
 
   .sidenav-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100vh;
+    overflow-y: auto;
 
     .sidenav-content-toolbar {
       background: #062639;
