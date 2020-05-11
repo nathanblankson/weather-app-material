@@ -9,6 +9,9 @@ export class DailyCardComponent implements OnInit {
   @Input()
   active: boolean;
 
+  @Input()
+  day;
+
   constructor() {}
 
   ngOnInit() {}
