@@ -59,9 +59,20 @@
 
   .middle {
     display: flex;
-    flex-grow: 1;
-    justify-content: center;
     width: 100%;
+    height: 225px;
+    margin-bottom: 20px;
+    overflow: auto;
+
+    .daily-cards {
+      display: flex;
+      width: 100%;
+      overflow: auto;
+
+      app-daily-card {
+        margin: 0 auto;
+      }
+    }
   }
 
   .bottom {

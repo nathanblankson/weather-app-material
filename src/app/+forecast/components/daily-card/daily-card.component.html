@@ -1,1 +1,8 @@
-<p>daily-card works!</p>
+<div class="container" [ngClass]="active ? 'active' : ''" (click)="onClick()">
+  <div class="row date">Tue 30</div>
+  <div class="row icon">Icon</div>
+  <div class="row temperature">
+    <span class="temperature-high">27&deg;</span><span class="temperature-low">20&deg;</span>
+  </div>
+  <div class="row summary">Sunny</div>
+</div>
