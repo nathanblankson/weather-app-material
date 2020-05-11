@@ -57,6 +57,13 @@
     }
   }
 
+  .middle {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    width: 100%;
+  }
+
   .bottom {
     display: flex;
     flex-grow: 1;
