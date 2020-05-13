@@ -28,15 +28,19 @@
     </div>
 
     <div class="middle">
-      <div class="daily-cards">
-        <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
-          (click)="selectedItem=i">
-        </app-daily-card>
-      </div>
+      <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
+        (click)="selectedItem=i">
+      </app-daily-card>
     </div>
 
     <div class="bottom">
-      BOTTOM
+      <div class="row">
+        <div>Hourly</div>
+        <div class="spacer"></div>
+        <button mat-button>Summary</button>
+        <button mat-button>Details</button>
+      </div>
+      <mat-divider class="row"></mat-divider>
     </div>
   </div>
 </app-navigation-wrapper>

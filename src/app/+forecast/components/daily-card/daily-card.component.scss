@@ -1,39 +1,45 @@
-.daily-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 125px;
-  padding: 20px;
-  cursor: pointer;
+:host {
+  margin: 0 auto;
+  height: 205px;
 
-  * {
-    margin-bottom: 15px;
-  }
+  .daily-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+    padding: 20px;
+    cursor: pointer;
 
-  &_temperature {
-
-    &--high {
-      margin-right: 5px;
-      font-size: 28px;
+    * {
+      margin-bottom: 15px;
     }
 
-    &_summary {
-      font-size: 14px;
+    &_temperature {
+
+      &--high {
+        margin-right: 5px;
+        font-size: 28px;
+      }
+
+      &_summary {
+        font-size: 14px;
+      }
     }
   }
-}
 
-.active {
-  background-color: #33364144;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    width: 50px;
-    height: 50px;
-    align-self: center;
+  .active {
     background-color: #33364144;
-    clip-path: polygon(50% 100%, 0 50%, 100% 50%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      width: 50px;
+      height: 50px;
+      align-self: center;
+      background-color: #33364144;
+      clip-path: polygon(50% 100%, 0 50%, 100% 50%);
+    }
   }
+
 }
