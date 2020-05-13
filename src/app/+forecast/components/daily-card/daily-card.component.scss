@@ -1,24 +1,25 @@
-// $color: rgba(51, 54, 65, 0.27);
-
-.container {
+.daily-card {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   width: 125px;
-  height: 140px;
+  padding: 20px;
   cursor: pointer;
 
-  .row {
+  * {
     margin-bottom: 15px;
   }
 
-  .temperature-high {
-    margin-right: 5px;
-    font-size: 28px;
-  }
+  &_temperature {
 
-  .summary {
-    font-size: 14px;
+    &--high {
+      margin-right: 5px;
+      font-size: 28px;
+    }
+
+    &_summary {
+      font-size: 14px;
+    }
   }
 }
 
@@ -28,11 +29,11 @@
   &::after {
     content: "";
     position: absolute;
-    align-self: center;
     bottom: -25px;
     width: 50px;
     height: 50px;
-    clip-path: polygon(50% 100%, 0 50%, 100% 50%);
+    align-self: center;
     background-color: #33364144;
+    clip-path: polygon(50% 100%, 0 50%, 100% 50%);
   }
 }

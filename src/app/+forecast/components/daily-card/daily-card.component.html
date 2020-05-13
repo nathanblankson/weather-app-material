@@ -1,9 +1,9 @@
-<div class="container" [ngClass]="active ? 'active' : ''" (click)="onClick()">
-  <div class="row date">{{ day.date }}</div>
-  <div class="row icon">{{ day.icon }}</div>
-  <div class="row temperature">
-    <span class="temperature-high">{{ day.temp.high }}&deg;</span><span
-      class="temperature-low">{{ day.temp.low }}&deg;</span>
+<div class="daily-card" [ngClass]="active ? 'active' : ''" (click)="onClick()">
+  <div class="daily-card_date">{{ day.date }}</div>
+  <div class="daily-card_icon">{{ day.icon }}</div>
+  <div class="daily-card_temperature">
+    <span class="daily-card_temperature--high">{{ day.temp.high }}&deg;</span><span
+      class="daily-card_temperature--low">{{ day.temp.low }}&deg;</span>
   </div>
-  <div class="row summary">{{ day.summary }}</div>
+  <div class="daily-card_summary">{{ day.summary }}</div>
 </div>
