@@ -5,27 +5,27 @@
   height: 100%;
   padding: 20px;
 
-  .top {
+  .info {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
 
-    .row {
+    div {
       margin: 5px;
     }
 
-    .location {
+    &_location {
       font-size: 28px;
     }
 
-    .temperature {
+    &_temperature {
       display: flex;
       align-items: center;
       font-size: 80px;
 
-      .unit {
+      &--unit {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,21 +33,21 @@
       }
     }
 
-    .summary {
+    &_summary {
       font-size: 24px;
     }
 
-    .details {
+    &_details {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      text-align: center;
       max-width: 500px;
+      text-align: center;
 
       div {
-        display: inherit;
-        align-items: inherit;
+        display: flex;
+        align-items: center;
         margin: 0 10px;
 
         i {
@@ -57,7 +57,7 @@
     }
   }
 
-  .middle {
+  .forecast {
     display: flex;
     width: 100%;
     margin-bottom: 20px;

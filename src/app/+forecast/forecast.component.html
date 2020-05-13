@@ -1,23 +1,23 @@
 <app-navigation-wrapper>
   <div class="container">
-    <div class="top">
-      <div class="row location">
+    <div class="info">
+      <div class="info_location">
         London, England
       </div>
 
-      <div class="row temperature">
+      <div class="info_temperature">
         17&deg;
-        <div class="unit">
-          <div class="row">C</div>
-          <div class="row">F</div>
+        <div class="info_temperature--unit">
+          <div>C</div>
+          <div>F</div>
         </div>
       </div>
 
-      <div class="row summary">
+      <div class="info_summary">
         Clear
       </div>
 
-      <div class="row details">
+      <div class="info_details">
         <div>Feels Like 17&deg;</div>
         <div>Wind <span><i class="material-icons">near_me</i></span> 6 mph</div>
         <div>Barometer 1021.00 mb</div>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="middle">
+    <div class="forecast">
       <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
         (click)="selectedItem=i">
       </app-daily-card>
