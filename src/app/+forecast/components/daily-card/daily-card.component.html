@@ -1,4 +1,4 @@
-<div class="daily-card" [ngClass]="{'active': active}" (click)="onClick()">
+<div class="daily-card" [ngClass]="{'daily-card--is-active': active}" (click)="onClick()">
   <div class="daily-card_date">{{ day.date }}</div>
   <div class="daily-card_icon">{{ day.icon }}</div>
   <div class="daily-card_temperature">
