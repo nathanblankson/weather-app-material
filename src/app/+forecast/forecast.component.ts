@@ -53,8 +53,17 @@ export class ForecastComponent implements OnInit {
   ];
 
   selectedItem = 1;
+  showSummary = true;
 
   constructor() {}
 
   ngOnInit() {}
+
+  summaryClicked() {
+    this.showSummary = true;
+  }
+
+  detailsClicked() {
+    this.showSummary = false;
+  }
 }

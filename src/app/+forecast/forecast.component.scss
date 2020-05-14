@@ -57,31 +57,49 @@
     }
   }
 
-  .forecast {
+  .forecast-daily {
+    position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
-    margin-bottom: 20px;
-    overflow: auto;
+
+    &_controls {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    &_cards {
+      display: flex;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
   }
 
-  .bottom {
+  .forecast-hourly {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
 
-    .row {
+    &_controls {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      font-size: 22px;
 
-      button {
-        margin-left: 5px;
+      .spacer {
+        flex-grow: 1;
+      }
+
+      .active {
+        background-color: #33364144;
       }
     }
 
-    .spacer {
-      flex-grow: 1;
+    mat-divider {
+      margin: 10px 0;
     }
   }
 }

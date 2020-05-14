@@ -27,20 +27,29 @@
       </div>
     </div>
 
-    <div class="forecast">
-      <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
-        (click)="selectedItem=i">
-      </app-daily-card>
+    <div class="forecast-daily">
+      <div class="forecast-daily_controls">Daily</div>
+      <div class="forecast-daily_cards">
+        <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
+          (click)="selectedItem=i">
+        </app-daily-card>
+      </div>
     </div>
 
-    <div class="bottom">
-      <div class="row">
+    <div class="forecast-hourly">
+      <div class="forecast-hourly_controls">
         <div>Hourly</div>
         <div class="spacer"></div>
-        <button mat-button>Summary</button>
-        <button mat-button>Details</button>
+        <button mat-button (click)="summaryClicked()" [ngClass]="{'active': showSummary}">Summary</button>
+        <button mat-button (click)="detailsClicked()" [ngClass]="{'active': !showSummary}">Details</button>
       </div>
-      <mat-divider class="row"></mat-divider>
+      <mat-divider></mat-divider>
+      <div class="forecast-hourly_summary" *ngIf="showSummary">
+        SUMMARY GRAPH THING
+      </div>
+      <div class="forecast-hourly_details" *ngIf="!showSummary">
+        DETAIL CARD THING
+      </div>
     </div>
   </div>
 </app-navigation-wrapper>
