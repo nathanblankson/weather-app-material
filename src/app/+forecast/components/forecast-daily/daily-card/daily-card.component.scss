@@ -14,16 +14,16 @@
       margin-bottom: 15px;
     }
 
-    &_temperature {
+    .temperature {
 
-      &--high {
+      &__high {
         margin-right: 5px;
         font-size: 28px;
       }
+    }
 
-      &_summary {
+    &__summary {
         font-size: 14px;
-      }
     }
 
     &--is-active {

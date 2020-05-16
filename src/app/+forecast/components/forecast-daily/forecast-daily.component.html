@@ -1,0 +1,11 @@
+<div class="forecast-daily">
+    <div class="forecast-daily__controls">Daily</div>
+    <div class="forecast-daily__cards">
+        <app-daily-card
+            *ngFor="let day of days;
+            let i = index" [day]="day"
+            [active]="selectedItem == i"
+            (click)="selectedItem = i">
+        </app-daily-card>
+    </div>
+</div>

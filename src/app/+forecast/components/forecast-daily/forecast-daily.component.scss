@@ -1,0 +1,20 @@
+.forecast-daily {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__controls {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    &__cards {
+      display: flex;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        background: transparent;
+      }
+    }
+}

@@ -1,64 +1,9 @@
 <app-navigation-wrapper>
     <div class="forecast-container">
-        <div class="forecast-info">
-            <div class="forecast-info__location">
-                London, England
-            </div>
+        <app-forecast-info></app-forecast-info>
 
-            <div class="forecast-info__temperature">
-                17&deg;
-                <div class="forecast-info__unit">
-                    <div>C</div>
-                    <div>F</div>
-                </div>
-            </div>
+        <app-forecast-daily [days]=days></app-forecast-daily>
 
-            <div class="forecast-info__summary">
-                Clear
-            </div>
-
-            <div class="forecast-info__details">
-                <div>Feels Like 17&deg;</div>
-                <div>
-                    Wind <span><i class="material-icons">near_me</i></span> 6 mph
-                </div>
-                <div>Barometer 1021.00 mb</div>
-                <div>Visibility 6 mi</div>
-                <div>Humidity 68%</div>
-                <div>Dew Point 11&deg;</div>
-            </div>
-        </div>
-
-        <div class="forecast-daily">
-            <div class="forecast-daily__controls">Daily</div>
-            <div class="forecast-daily__cards">
-                <app-daily-card *ngFor="let day of days; let i = index" [day]="day" [active]="selectedItem == i"
-                    (click)="selectedItem = i">
-                </app-daily-card>
-            </div>
-        </div>
-
-        <div class="forecast-hourly">
-            <div class="forecast-hourly__controls">
-                <div>Hourly</div>
-                <div class="spacer"></div>
-                <button mat-button class="btn" (click)="summaryClicked()" [ngClass]="{ 'btn--is-active': showSummary }">
-                    <mat-icon>show_chart</mat-icon>
-                    Summary
-                </button>
-                <button mat-button class="btn" (click)="detailsClicked()"
-                    [ngClass]="{ 'btn--is-active': !showSummary }">
-                    <mat-icon>description</mat-icon>
-                    Details
-                </button>
-            </div>
-            <mat-divider></mat-divider>
-            <div class="forecast-hourly__summary" *ngIf="showSummary">
-                SUMMARY GRAPH THING
-            </div>
-            <div class="forecast-hourly__details" *ngIf="!showSummary">
-                DETAIL CARD THING
-            </div>
-        </div>
+        <app-forecast-hourly></app-forecast-hourly>
     </div>
 </app-navigation-wrapper>

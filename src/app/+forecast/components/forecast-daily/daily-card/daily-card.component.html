@@ -1,0 +1,9 @@
+<div class="daily-card" [ngClass]="{'daily-card--is-active': active}" (click)="onClick()">
+    <div>{{ day.date }}</div>
+    <div>{{ day.icon }}</div>
+    <div class="daily-card__temperature">
+        <span class="temperature__high">{{ day.temp.high }}&deg;</span>
+        <span class="temperature__low">{{ day.temp.low }}&deg;</span>
+    </div>
+    <div class="daily-card__summary">{{ day.summary }}</div>
+</div>

@@ -1,0 +1,30 @@
+.forecast-hourly {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+
+    &__controls {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+
+      .spacer {
+        flex-grow: 1;
+      }
+
+      .btn {
+        margin-left: 5px;
+        border-radius: 0px;
+        background-color: #33364111;
+
+        &--is-active {
+          background-color: #33364144;
+        }
+      }
+    }
+
+    mat-divider {
+      margin: 10px 0;
+    }
+  }
