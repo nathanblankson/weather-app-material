@@ -1,11 +1,20 @@
 <app-navigation-wrapper>
     <div class="forecast">
         <div class="forecast__search">
-            <form [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="forecastForm" (ngSubmit)="onChangeLocation()">
                 <mat-form-field>
-                    <input matInput formControlName="location" placeholder="Search a location...">
+                    <input type="text"
+                        placeholder="Enter a location: (City Name, State, Country)"
+                        aria-label="Location"
+                        matInput
+                        formControlName="location"
+                        [matAutocomplete]="autoLocation">
+                    <mat-autocomplete #autoLocation="matAutocomplete" (optionSelected)="onChangeLocation()">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
-                <!-- TODO: Current Location? -->
             </form>
         </div>
 

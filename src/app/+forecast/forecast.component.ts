@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith, map, count } from 'rxjs/operators'
 import { ForecastService } from '@core/services/forecast.service';
 
 @Component({
@@ -56,22 +58,39 @@ export class ForecastComponent implements OnInit {
 
     forecastForm: FormGroup;
 
-    constructor(private _forecastService: ForecastService) { }
+    options: string[] = ['London, UK', 'New York, USA', 'Moscow, RU'];
+    filteredOptions: Observable<string[]>;
+
+    constructor(private _forecastService: ForecastService, private fb: FormBuilder) { }
 
     ngOnInit() {
         this.initForm();
     }
 
-    onSubmit() {
+    onChangeLocation() {
         if (this.forecastForm.invalid) {
             return;
         }
-        console.log(this.forecastForm.getRawValue());
+        const query: string = this.forecastForm.get('location').value;
+        const [cityName, state, countryCode] = query.split(',');
+        const res = this._forecastService.getCurrentWeather({ cityName, state, countryCode });
+        console.log(res);
     }
 
     private initForm() {
-        this.forecastForm = new FormGroup({
-            'location': new FormControl(null, Validators.required),
+        this.forecastForm = this.fb.group({
+            location: ["", Validators.required],
         });
+
+        this.filteredOptions = this.forecastForm.controls.location.valueChanges
+            .pipe(
+                startWith(''),
+                map(value => this._filter(value))
+            );
+    }
+
+    private _filter(value: string): string[] {
+        const filterValue = value.toLowerCase();
+        return this.options.filter(option => option.toLowerCase().includes(filterValue));
     }
 }
