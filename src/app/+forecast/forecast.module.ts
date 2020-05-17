@@ -6,12 +6,12 @@ import { ForecastComponent } from './forecast.component';
 import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { ForecastRoutingModule } from './forecast-routing.module';
 import { DailyCardComponent } from './components/forecast-daily/daily-card/daily-card.component';
-import { ForecastInfoComponent } from './components/forecast-info/forecast-info.component';
+import { ForecastCurrentComponent } from './components/forecast-current/forecast-current.component';
 import { ForecastHourlyComponent } from './components/forecast-hourly/forecast-hourly.component';
 import { ForecastDailyComponent } from './components/forecast-daily/forecast-daily.component';
 
 @NgModule({
-    declarations: [ForecastComponent, DailyCardComponent, ForecastInfoComponent, ForecastHourlyComponent, ForecastDailyComponent],
+    declarations: [ForecastComponent, DailyCardComponent, ForecastCurrentComponent, ForecastHourlyComponent, ForecastDailyComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
