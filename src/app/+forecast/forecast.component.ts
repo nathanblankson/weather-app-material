@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ForecastService } from '@core/services/forecast.service';
 
 @Component({
     selector: 'app-forecast',
@@ -38,21 +40,38 @@ export class ForecastComponent implements OnInit {
             temp: { high: 30, low: 17 },
             summary: 'Sunny',
         },
-        {
-            date: 'Sun 5',
-            icon: 'Icon',
-            temp: { high: 24, low: 14 },
-            summary: 'Sunny',
-        },
-        {
-            date: 'Mon 6',
-            icon: 'Icon',
-            temp: { high: 25, low: 15 },
-            summary: 'Sunny',
-        },
+        // {
+        //     date: 'Sun 5',
+        //     icon: 'Icon',
+        //     temp: { high: 24, low: 14 },
+        //     summary: 'Sunny',
+        // },
+        // {
+        //     date: 'Mon 6',
+        //     icon: 'Icon',
+        //     temp: { high: 25, low: 15 },
+        //     summary: 'Sunny',
+        // },
     ];
 
-    constructor() { }
+    forecastForm: FormGroup;
 
-    ngOnInit() { }
+    constructor(private _forecastService: ForecastService) { }
+
+    ngOnInit() {
+        this.initForm();
+    }
+
+    onSubmit() {
+        if (this.forecastForm.invalid) {
+            return;
+        }
+        console.log(this.forecastForm.getRawValue());
+    }
+
+    private initForm() {
+        this.forecastForm = new FormGroup({
+            'location': new FormControl(null, Validators.required),
+        });
+    }
 }

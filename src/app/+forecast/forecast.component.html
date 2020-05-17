@@ -1,9 +1,19 @@
 <app-navigation-wrapper>
-    <div class="forecast-container">
+    <div class="forecast">
+        <div class="forecast__search">
+            <form [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <input matInput formControlName="location" placeholder="Search a location...">
+                </mat-form-field>
+                <!-- TODO: Current Location? -->
+            </form>
+        </div>
+
         <app-forecast-info></app-forecast-info>
 
         <app-forecast-daily [days]=days></app-forecast-daily>
 
-        <app-forecast-hourly></app-forecast-hourly>
+        <!-- TODO: Requires paid access for hourly breakdown -->
+        <!-- <app-forecast-hourly></app-forecast-hourly> -->
     </div>
 </app-navigation-wrapper>

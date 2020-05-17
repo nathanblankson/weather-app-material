@@ -1,32 +1,31 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" opened=false>
-    <mat-toolbar>
-      <a class="home-button" routerLink="/">
-        <img class="app-logo" src="assets/images/brand/sb_logo_white.svg" />
-      </a>
-    </mat-toolbar>
-    <app-nav-list></app-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar class="sidenav-content-toolbar" color="primary">
-      <button mat-icon-button class="menu-button" type="button" aria-label="Toggle sidenav" (tap)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="filler">
-        <!-- TODO: Search bar -->
-      </span>
-      <button mat-icon-button class="refresh-button" type="button" aria-label="Refresh">
-        <mat-icon>refresh</mat-icon>
-      </button>
-      <button mat-icon-button class="favourite-button" type="button" aria-label="Favourite location">
-        <mat-icon>star_outline</mat-icon>
-      </button>
-      <button mat-icon-button class="more-options-button" type="button" aria-label="More options">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
-      <!-- TODO: Search Input -->
-    </mat-toolbar>
-    <ng-content></ng-content>
-  </mat-sidenav-content>
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" opened=false>
+        <mat-toolbar>
+            <a class="home-button" routerLink="/">
+                <img class="app-logo" src="assets/images/brand/sb_logo_white.svg" />
+            </a>
+        </mat-toolbar>
+        <app-nav-list></app-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+        <mat-toolbar class="sidenav-content-toolbar" color="primary">
+            <button mat-icon-button class="menu-button" type="button" aria-label="Toggle sidenav"
+                (tap)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="filler">
+            </span>
+            <button mat-icon-button class="refresh-button" type="button" aria-label="Refresh">
+                <mat-icon>refresh</mat-icon>
+            </button>
+            <button mat-icon-button class="favourite-button" type="button" aria-label="Favourite location">
+                <mat-icon>star_outline</mat-icon>
+            </button>
+            <button mat-icon-button class="more-options-button" type="button" aria-label="More options">
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
 </mat-sidenav-container>

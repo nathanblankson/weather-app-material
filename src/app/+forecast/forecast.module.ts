@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@shared/modules/material/material.module';
 import { ForecastComponent } from './forecast.component';
 import { NavigationModule } from '@shared/modules/navigation/navigation.module';
@@ -14,6 +14,7 @@ import { ForecastDailyComponent } from './components/forecast-daily/forecast-dai
     declarations: [ForecastComponent, DailyCardComponent, ForecastInfoComponent, ForecastHourlyComponent, ForecastDailyComponent],
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         MaterialModule,
         NavigationModule,
         ForecastRoutingModule,

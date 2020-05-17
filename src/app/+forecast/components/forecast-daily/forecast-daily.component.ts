@@ -10,6 +10,7 @@ export class ForecastDailyComponent implements OnInit {
     @Input()
     days;
 
+    // TODO: Requires paid access for hourly breakdown
     selectedItem = 1;
 
     constructor() { }
