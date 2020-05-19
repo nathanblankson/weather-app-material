@@ -1,10 +1,10 @@
 <div class="forecast-current">
     <div class="forecast-current__location">
-        London, England
+        {{ currentForecast?.name }}, {{ currentForecast?.sys.country }}
     </div>
 
     <div class="forecast-current__temperature">
-        17&deg;
+        {{ currentForecast?.main.temp }}&deg;
         <div class="forecast-current__unit">
             <div>C</div>
             <div>F</div>
@@ -12,17 +12,17 @@
     </div>
 
     <div class="forecast-current__summary">
-        Clear
+        {{ currentForecast?.weather[0].main }}
     </div>
 
     <div class="forecast-current__details">
-        <div>Feels Like 17&deg;</div>
+        <div>Feels Like {{ currentForecast?.main.feels_like }}&deg;</div>
         <div>
-            Wind <span><i class="material-icons">near_me</i></span> 6 m/s
+            Wind <span><i class="material-icons">near_me</i></span> {{ currentForecast?.wind.speed }} m/s
         </div>
-        <div>Barometer 1021.00 hPa</div>
-        <div>Visibility 6 mi</div>
-        <div>Humidity 68%</div>
+        <div>Barometer {{ currentForecast?.main.pressure }} hPa</div>
+        <div>Visibility {{ currentForecast?.visibility }} mi</div>
+        <div>Humidity {{ currentForecast?.main.humidity }}%</div>
         <div>Dew Point 11&deg;</div>
     </div>
 </div>

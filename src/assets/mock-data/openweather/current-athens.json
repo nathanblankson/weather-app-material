@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": -0.13,
+        "lat": 51.51
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Sunny",
+            "description": "sunny",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 304.33,
+        "feels_like": 303.22,
+        "temp_min": 424.4324,
+        "temp_max": 424.432,
+        "pressure": 52352,
+        "humidity": 532
+    },
+    "visibility": 5325,
+    "wind": {
+        "speed": 32.1,
+        "deg": 280
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1589639248,
+    "sys": {
+        "type": 1,
+        "id": 1414,
+        "country": "GR",
+        "sunrise": 1589602004,
+        "sunset": 1589658436
+    },
+    "timezone": 3600,
+    "id": 2643743,
+    "name": "Athens",
+    "cod": 200
+}

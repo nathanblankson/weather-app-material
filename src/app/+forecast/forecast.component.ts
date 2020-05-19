@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { startWith, map, count } from 'rxjs/operators'
+import { startWith, map, count, tap } from 'rxjs/operators'
 import { ForecastService } from '@core/services/forecast.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-forecast',
@@ -56,37 +57,46 @@ export class ForecastComponent implements OnInit {
         // },
     ];
 
-    forecastForm: FormGroup;
+    forecastSearchForm: FormGroup;
 
-    options: string[] = ['London, UK', 'New York, USA', 'Moscow, RU'];
+    options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
     filteredOptions: Observable<string[]>;
 
-    constructor(private _forecastService: ForecastService, private fb: FormBuilder) { }
+    currentForecast;
+    dailyForecast;
+
+    constructor(private _forecastService: ForecastService, private _fb: FormBuilder, private _http: HttpClient) { }
 
     ngOnInit() {
-        this.initForm();
-    }
-
-    onChangeLocation() {
-        if (this.forecastForm.invalid) {
-            return;
-        }
-        const query: string = this.forecastForm.get('location').value;
-        const [cityName, state, countryCode] = query.split(',');
-        const res = this._forecastService.getCurrentWeather({ cityName, state, countryCode });
-        console.log(res);
-    }
-
-    private initForm() {
-        this.forecastForm = this.fb.group({
-            location: ["", Validators.required],
-        });
-
-        this.filteredOptions = this.forecastForm.controls.location.valueChanges
+        this.forecastSearchForm = this.initForm();
+        this.filteredOptions = this.forecastSearchForm.controls.location.valueChanges
             .pipe(
                 startWith(''),
                 map(value => this._filter(value))
             );
+    }
+
+    onChangeLocation() {
+        if (this.forecastSearchForm.invalid) {
+            return;
+        }
+        const query: string = this.forecastSearchForm.get('location').value;
+        const [cityName, state, countryCode] = query.split(',');
+
+        // this._forecastService.getCurrentWeather({ cityName, state, countryCode }).subscribe((res) => {
+        //     this.currentForecast = res;
+        //     console.log(res);
+        // });
+
+        this._forecastService.getCurrentWeatherMock({ cityName }).subscribe((res) => {
+            this.currentForecast = res;
+        });
+    }
+
+    private initForm() {
+        return this._fb.group({
+            location: ["", Validators.required],
+        });
     }
 
     private _filter(value: string): string[] {

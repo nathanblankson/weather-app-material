@@ -1,7 +1,7 @@
 <app-navigation-wrapper>
     <div class="forecast">
         <div class="forecast__search">
-            <form [formGroup]="forecastForm" (ngSubmit)="onChangeLocation()">
+            <form [formGroup]="forecastSearchForm" (ngSubmit)="onChangeLocation()">
                 <mat-form-field>
                     <input type="text"
                         placeholder="Enter a location: (City Name, State, Country)"
@@ -18,9 +18,9 @@
             </form>
         </div>
 
-        <app-forecast-current></app-forecast-current>
+        <app-forecast-current *ngIf="currentForecast" [currentForecast]="currentForecast"></app-forecast-current>
 
-        <app-forecast-daily [days]=days></app-forecast-daily>
+        <app-forecast-daily *ngIf="dailyForecast" [days]=days></app-forecast-daily>
 
         <!-- TODO: Requires paid access for hourly breakdown -->
         <!-- <app-forecast-hourly></app-forecast-hourly> -->
