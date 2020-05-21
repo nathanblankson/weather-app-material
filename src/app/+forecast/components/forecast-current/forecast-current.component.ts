@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { IForecastCurrent } from '@core/services/forecast.service';
 
 @Component({
     selector: 'app-forecast-current',
@@ -8,21 +8,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ForecastCurrentComponent implements OnInit {
 
-    private _currentForecast = new BehaviorSubject<any>({});
+    @Input()
+    currentForecast: IForecastCurrent;
 
     @Input()
-    set currentForecast(value) {
-        this._currentForecast.next(value);
-        console.log(this._currentForecast);
-    }
-
-    get currentForecast() {
-        return this._currentForecast.getValue();
-    }
+    tempUnit;
 
     constructor() { }
 
     ngOnInit() {
     }
-
 }

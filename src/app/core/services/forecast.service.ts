@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { environment } from '@environment/environment';
-import { tap, map } from 'rxjs/operators';
-
 import { IWeather, ILocation } from '@core/models';
 
 export interface IForecastCurrent {
@@ -23,43 +23,49 @@ export class ForecastService {
 
     getCurrentWeather(params: { cityName: string, state: string, countryCode: string }) {
         const { cityName, state, countryCode } = params;
-        return this._http.get(`${this.openWeatherApi}weather?q=${cityName},${state},${countryCode}&appid=${this.openWeatherKey}`).pipe(
-            tap(
-                data => data,
-                error => console.log(error)
-            )
-        )
+        return this._http.get(`${this.openWeatherApi}weather?q=${cityName},${state},${countryCode}&appid=${this.openWeatherKey}`)
+            .pipe(
+                map(data => this.formatCurrentWeatherData(data)),
+                catchError(err => throwError(err))
+            );
     }
 
     getCurrentWeatherMock(params: { cityName: string }) {
         const { cityName } = params;
         const url = `assets/mock-data/openweather/current-${cityName.toLowerCase()}.json`;
-        return this._http.get(url).pipe(
-            tap(
-                data => data,
-                error => console.log(error)
-            )
-        )
+        return this._http.get(url)
+            .pipe(
+                map(data => this.formatCurrentWeatherData(data)),
+                catchError(err => throwError(err))
+            );
     }
 
-    // private formatData(data) {
-    //     const formattedResponse = {
-    //         weather: {
-    //             main: data.weather[0].main,
-    //             description: data.weather[0].description,
-    //             icon: data.weather[0].icon
-    //         },
-    //         main: data.main,
-    //         visibility: data.visibility,
-    //         wind: data.wind,
-    //         dt: data.dt,
-    //         location: {
-    //             name: data.name,
-    //             country: data.sys.country
-    //         }
-    //     };
-    //     return formattedResponse;
-    // }
+    private formatCurrentWeatherData = (data): IForecastCurrent => {
+
+        const formattedResponse: IForecastCurrent = {
+            weather: {
+                weatherText: data.weather[0].main,
+                weatherDescription: data.weather[0].description,
+                icon: data.weather[0].icon,
+                currentTemp: data.main.temp,
+                minTemp: data.main.temp_min,
+                maxTemp: data.main.temp_max,
+                feelsLikeTemp: data.main.feels_like,
+                pressure: data.main.pressure,
+                humidity: data.main.humidity,
+                visibility: data.visibility,
+                windSpeed: data.wind.speed,
+                windDeg: data.wind.deg
+            },
+            location: {
+                cityName: data.name,
+                country: data.sys.country
+            },
+            dt: data.dt
+        };
+
+        return formattedResponse;
+    };
 }
 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { startWith, map, count, tap } from 'rxjs/operators'
-import { ForecastService } from '@core/services/forecast.service';
+import { startWith, map } from 'rxjs/operators'
+import { ForecastService, IForecastCurrent } from '@core/services/forecast.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -62,8 +62,10 @@ export class ForecastComponent implements OnInit {
     options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
     filteredOptions: Observable<string[]>;
 
-    currentForecast;
+    currentForecast: IForecastCurrent;
     dailyForecast;
+
+    tempUnit = 'celcius';
 
     constructor(private _forecastService: ForecastService, private _fb: FormBuilder, private _http: HttpClient) { }
 
@@ -83,14 +85,15 @@ export class ForecastComponent implements OnInit {
         const query: string = this.forecastSearchForm.get('location').value;
         const [cityName, state, countryCode] = query.split(',');
 
-        // this._forecastService.getCurrentWeather({ cityName, state, countryCode }).subscribe((res) => {
+        this._forecastService.getCurrentWeather({ cityName, state, countryCode }).subscribe((res) => {
+            this.currentForecast = res;
+            console.log(res);
+        });
+
+        // this._forecastService.getCurrentWeatherMock({ cityName }).subscribe((res) => {
         //     this.currentForecast = res;
         //     console.log(res);
         // });
-
-        this._forecastService.getCurrentWeatherMock({ cityName }).subscribe((res) => {
-            this.currentForecast = res;
-        });
     }
 
     private initForm() {
