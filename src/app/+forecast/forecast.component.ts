@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
-import { ForecastService, IForecastCurrent } from '@core/services/forecast.service';
+import { ForecastService } from '@core/services/forecast.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -62,7 +62,7 @@ export class ForecastComponent implements OnInit {
     options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
     filteredOptions: Observable<string[]>;
 
-    currentForecast: IForecastCurrent;
+    currentForecast;
     dailyForecast;
 
     tempUnit = 'celcius';
@@ -82,10 +82,9 @@ export class ForecastComponent implements OnInit {
         if (this.forecastSearchForm.invalid) {
             return;
         }
-        const query: string = this.forecastSearchForm.get('location').value;
-        const [cityName, state, countryCode] = query.split(',');
+        const query: string = this.forecastSearchForm.get('location').value.replace(/\s*,\s*/g, ",");
 
-        this._forecastService.getCurrentWeather({ cityName, state, countryCode }).subscribe((res) => {
+        this._forecastService.getCurrentWeather(query).subscribe((res) => {
             this.currentForecast = res;
             console.log(res);
         });

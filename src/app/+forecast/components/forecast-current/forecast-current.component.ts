@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { IForecastCurrent } from '@core/services/forecast.service';
 
 @Component({
     selector: 'app-forecast-current',
@@ -9,7 +8,7 @@ import { IForecastCurrent } from '@core/services/forecast.service';
 export class ForecastCurrentComponent implements OnInit {
 
     @Input()
-    currentForecast: IForecastCurrent;
+    currentForecast;
 
     @Input()
     tempUnit;
