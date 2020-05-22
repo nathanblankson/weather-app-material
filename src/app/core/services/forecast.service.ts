@@ -18,7 +18,6 @@ export class ForecastService {
         const params = new HttpParams()
             .set('q', query)
             .set('appid', this.openWeatherKey);
-
         return this._http.get(`${this.openWeatherApi}/weather`, { params })
             .pipe(
                 map(data => data),
@@ -29,6 +28,26 @@ export class ForecastService {
     getCurrentWeatherMock(params: { cityName: string }) {
         const { cityName } = params;
         const url = `assets/mock-data/openweather/current-${cityName.toLowerCase()}.json`;
+        return this._http.get(url)
+            .pipe(
+                map(data => data),
+                catchError(err => throwError(err))
+            );
+    }
+
+    getForecast(query: string) {
+        const params = new HttpParams()
+            .set('q', query)
+            .set('appid', this.openWeatherKey);
+        return this._http.get(`${this.openWeatherApi}/forecast`, { params })
+            .pipe(
+                map(data => data),
+                catchError(err => throwError(err))
+            );
+    }
+
+    getForecastMock() {
+        const url = `assets/mock-data/openweather/5-day-forecast-response.json`;
         return this._http.get(url)
             .pipe(
                 map(data => data),

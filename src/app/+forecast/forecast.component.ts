@@ -65,8 +65,6 @@ export class ForecastComponent implements OnInit {
     currentForecast;
     dailyForecast;
 
-    tempUnit = 'celcius';
-
     constructor(private _forecastService: ForecastService, private _fb: FormBuilder, private _http: HttpClient) { }
 
     ngOnInit() {
@@ -84,10 +82,11 @@ export class ForecastComponent implements OnInit {
         }
         const query: string = this.forecastSearchForm.get('location').value.replace(/\s*,\s*/g, ",");
 
-        this._forecastService.getCurrentWeather(query).subscribe((res) => {
-            this.currentForecast = res;
-            console.log(res);
-        });
+        // Get the current weather data
+        // this._forecastService.getCurrentWeather(query).subscribe((res) => {
+        //     this.currentForecast = res;
+        //     console.log(res);
+        // });
 
         // this._forecastService.getCurrentWeatherMock({ cityName }).subscribe((res) => {
         //     this.currentForecast = res;
@@ -95,7 +94,7 @@ export class ForecastComponent implements OnInit {
         // });
     }
 
-    private initForm() {
+    private initForm(): FormGroup {
         return this._fb.group({
             location: ["", Validators.required],
         });

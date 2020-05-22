@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ForecastDailyComponent implements OnInit {
 
     @Input()
-    days;
+    dailyForecast;
 
     // TODO: Requires paid access for hourly breakdown
     selectedItem = 1;
@@ -17,5 +17,4 @@ export class ForecastDailyComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }
