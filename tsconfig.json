@@ -6,6 +6,7 @@
       "@environment/*": ["environments/*"],
       "@core/*": ["app/core/*"],
       "@shared/*": ["app/shared/*"],
+      "@store/*": ["app/store/*"],
       "@forcast/*": ["app/+forecast/*"],
     },
     "outDir": "./dist/out-tsc",
