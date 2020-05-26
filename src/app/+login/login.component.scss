@@ -1,0 +1,14 @@
+.login-container {
+    height: 100%;
+    display: flex;
+    text-align: center;
+
+    .login {
+        margin: auto;
+        width: 300px;
+
+        &__field {
+            width: 100%;
+        }
+    }
+}

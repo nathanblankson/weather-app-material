@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiServer: 'http://localhost:4000',
+    apiServer: 'http://localhost:4000/api',
     openWeatherKey: 'ca7be5fb03c5a1d601eb5bd8b809c69e'
 };
 
