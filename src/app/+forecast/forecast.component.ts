@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
+
 import { ForecastService } from '@core/services/forecast.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-forecast',
