@@ -4,7 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
 
-import { ForecastService } from '@core/services/forecast.service';
+import { ForecastService } from '@core/services/forecast/forecast.service';
 
 @Component({
     selector: 'app-forecast',
