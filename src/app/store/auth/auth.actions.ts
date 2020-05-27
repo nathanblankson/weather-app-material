@@ -4,6 +4,8 @@ const AuthActionTypes = {
     LOGIN_REQUEST: '[Auth] Login Request',
     LOGIN_FAILURE: '[Auth] Login Failure',
     LOGIN_SUCCESS: '[Auth] Login Success',
+
+    LOGOUT: '[Auth] Logout',
 }
 
 export class LoginRequest {
@@ -19,4 +21,8 @@ export class LoginFailure {
 export class LoginSuccess {
     static readonly type = AuthActionTypes.LOGIN_SUCCESS;
     constructor(public payload: { user: User, token: string }) { }
+}
+
+export class Logout {
+    static readonly type = AuthActionTypes.LOGOUT;
 }
