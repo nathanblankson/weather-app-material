@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
-import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
+import { NgxsReduxDevtoolsPluginModule, } from '@ngxs/devtools-plugin';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appState } from '@store/index';
+import { CustomRouterStateSerializer } from '@store/router/router-state.serializer';
 import { MaterialModule } from '@shared/modules/material/material.module';
 import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { ForecastModule } from '@forcast/forecast.module';
@@ -28,5 +29,8 @@ import { ForecastModule } from '@forcast/forecast.module';
         NgxsReduxDevtoolsPluginModule.forRoot()
     ],
     bootstrap: [AppComponent],
+    providers: [
+        { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }
+    ]
 })
 export class AppModule { }

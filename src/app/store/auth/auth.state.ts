@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
 
-import { defaultAuthStateModel, AuthStateModel } from './auth.state.model';
+import { defaultAuthStateModel, AuthStateModel } from './auth-state.model';
 import { AuthService } from '@core/services/auth/auth.service';
 import { LoginRequest, LoginFailure, LoginSuccess } from './auth.actions';
 
