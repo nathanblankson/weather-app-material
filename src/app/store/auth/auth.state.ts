@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
 
-import { defaultAuthStateModel, AuthStateModel } from './auth-state.model';
+import { defaultAuthState, AuthStateModel } from './auth-state.model';
 import { AuthService } from '@core/services/auth/auth.service';
 import { LoginRequest, LoginFailure, LoginSuccess, Logout } from './auth.actions';
 
 @State<AuthStateModel>({
     name: 'Auth',
-    defaults: defaultAuthStateModel
+    defaults: defaultAuthState
 })
 @Injectable()
 export class AuthState {
@@ -51,7 +51,7 @@ export class AuthState {
 
     @Action(Logout)
     logout({ setState, dispatch }: StateContext<AuthStateModel>, action: Logout) {
-        setState(defaultAuthStateModel);
+        setState(defaultAuthState);
         dispatch(new Navigate(['/login']));
     }
 }

@@ -9,7 +9,7 @@ export interface AuthStateModel {
     token: string | null;
 }
 
-export const defaultAuthStateModel = {
+export const defaultAuthState = {
     loading: false,
     loaded: false,
     failed: false,
