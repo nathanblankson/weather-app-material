@@ -1,3 +1,5 @@
+import { User } from './user.model';
+
 export type AuthType = 'login' | 'register';
 
 export interface AuthDTO {
@@ -6,4 +8,9 @@ export interface AuthDTO {
     passwordConfirmation?: string;
     firstName?: string;
     lastName?: string;
+}
+
+export interface AuthRO {
+    user: User,
+    token: string
 }

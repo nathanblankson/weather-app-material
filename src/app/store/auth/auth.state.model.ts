@@ -1,9 +1,12 @@
+import { User } from '@core/models';
+
 export interface AuthStateModel {
     loading: boolean;
     loaded: boolean;
     failed: boolean;
     isAuthenticated: boolean;
-    user: any | null;
+    user: User | null;
+    token: string | null;
 }
 
 export const defaultAuthStateModel = {
@@ -11,5 +14,6 @@ export const defaultAuthStateModel = {
     loaded: false,
     failed: false,
     isAuthenticated: false,
-    user: null
+    user: null,
+    token: null
 }

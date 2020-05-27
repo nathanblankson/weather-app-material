@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
-import { catchError, map } from 'rxjs/operators';
+import { Navigate } from '@ngxs/router-plugin';
 
 import { defaultAuthStateModel, AuthStateModel } from './auth.state.model';
 import { AuthService } from '@core/services/auth/auth.service';
@@ -15,33 +15,37 @@ export class AuthState {
     constructor(private _authService: AuthService) { }
 
     @Action(LoginRequest)
-    loginRequest(ctx: StateContext<AuthStateModel>, action: LoginRequest) {
-        ctx.setState({
-            loading: true,
-            loaded: false,
-            failed: false,
-            isAuthenticated: false,
-            user: null
+    loginRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginRequest) {
+        patchState({
+            loading: true
         });
-        return this._authService.login(action.payload).pipe(
-            map((user: any) => ctx.dispatch(new LoginSuccess(user))),
-            catchError(
-                err => ctx.dispatch(new LoginFailure(err))
-            )
-        );
+        return this._authService.login(action.payload.data).subscribe(
+            res => dispatch(new LoginSuccess({ user: res.user, token: res.token })),
+            err => dispatch(new LoginFailure(err))
+        )
     }
 
     @Action(LoginFailure)
-    loginFailure(ctx: StateContext<AuthStateModel>, action: LoginFailure) {
-        // TODO: set loading, loaded, failed
-        console.log(action.error);
+    loginFailure({ patchState }: StateContext<AuthStateModel>, action: LoginFailure) {
+        patchState({
+            loading: false,
+            loaded: true,
+            failed: true
+        });
+        console.log(action.payload.error);
         return null;
     }
 
     @Action(LoginSuccess)
-    loginSuccess(ctx: StateContext<AuthStateModel>, action: LoginSuccess) {
-        // TODO: set loading, loaded, failed
-        console.log(action.user);
-        return null;
+    loginSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginSuccess) {
+        patchState({
+            loading: false,
+            loaded: true,
+            failed: false,
+            isAuthenticated: true,
+            user: action.payload.user,
+            token: action.payload.token
+        });
+        dispatch(new Navigate(['/forecast']));
     }
 }

@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return;
         }
-        const payload: AuthDTO = this.loginForm.getRawValue();
-        this._store.dispatch(new LoginRequest(payload));
+        const data: AuthDTO = this.loginForm.getRawValue();
+        this._store.dispatch(new LoginRequest({ data }));
     }
 
     private initForm(): FormGroup {

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { ForecastModule } from '@forcast/forecast.module';
         ForecastModule,
         HttpClientModule,
         NgxsModule.forRoot(appState),
+        NgxsRouterPluginModule.forRoot(),
         NgxsReduxDevtoolsPluginModule.forRoot()
     ],
     bootstrap: [AppComponent],

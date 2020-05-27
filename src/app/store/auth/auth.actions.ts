@@ -1,4 +1,4 @@
-import { AuthDTO } from '@core/models';
+import { AuthDTO, User } from '@core/models';
 
 const AuthActionTypes = {
     LOGIN_REQUEST: '[Auth] Login Request',
@@ -8,15 +8,15 @@ const AuthActionTypes = {
 
 export class LoginRequest {
     static readonly type = AuthActionTypes.LOGIN_REQUEST;
-    constructor(public payload: AuthDTO) { }
+    constructor(public payload: { data: AuthDTO }) { }
 }
 
 export class LoginFailure {
     static readonly type = AuthActionTypes.LOGIN_FAILURE;
-    constructor(public error: string) { }
+    constructor(public payload: { error: string }) { }
 }
 
 export class LoginSuccess {
     static readonly type = AuthActionTypes.LOGIN_SUCCESS;
-    constructor(public user: any) { }
+    constructor(public payload: { user: User, token: string }) { }
 }
