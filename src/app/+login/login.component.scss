@@ -1,14 +1,22 @@
 .login-container {
     height: 100%;
     display: flex;
-    text-align: center;
 
     .login {
         margin: auto;
-        width: 300px;
+        max-width: 300px;
+        text-align: center;
+        font-family: 'Lato', sans-serif;
 
         &__field {
             width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 400;
         }
     }
 }

@@ -1,20 +1,26 @@
 <div class="login-container">
     <mat-card class="login">
-        <div class="login__title">
-            Login
-        </div>
+        <h2>Login</h2>
 
         <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-            <mat-form-field class=" login__field">
+            <mat-form-field class="login__field">
                 <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="loginForm.controls.email.invalid">Please enter an email address</mat-error>
             </mat-form-field>
 
             <mat-form-field class="login__field">
                 <input matInput placeholder="Password" type="password" formControlName="password">
+                <mat-error *ngIf="loginForm.controls.password.invalid">Please enter a password</mat-error>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" class="login__field">Login</button>
+            <button mat-raised-button color="primary" class="login__field" type="submit">
+                Login
+            </button>
         </form>
+
+        <a href="/">
+            Forgot Your Password?
+        </a>
     </mat-card>
 
 </div>
