@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
     private initForm(): FormGroup {
         return this._fb.group({
-            email: ["", Validators.required],
+            email: ["", [Validators.required, Validators.email]],
             password: ["", Validators.required],
         });
     }

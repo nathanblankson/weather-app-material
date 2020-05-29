@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 
 import { AuthDTO } from '@core/models';
+import { RegisterRequest } from '@store/auth/auth.actions';
 
 @Component({
     selector: 'app-register',
@@ -25,14 +26,14 @@ export class RegisterComponent implements OnInit {
             return;
         }
         const data: AuthDTO = this.registerForm.getRawValue();
-        // this._store.dispatch(new LoginRequest({ data }));
+        this._store.dispatch(new RegisterRequest({ data }));
     }
 
     private initForm(): FormGroup {
         return this._fb.group({
             firstname: ["", Validators.required],
             lastname: ["", Validators.required],
-            email: ["", Validators.required],
+            email: ["", [Validators.required, Validators.email]],
             password: ["", Validators.required],
             passwordConfirmation: ["", Validators.required],
         });

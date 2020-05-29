@@ -4,7 +4,7 @@ import { Navigate } from '@ngxs/router-plugin';
 
 import { defaultAuthState, AuthStateModel } from './auth-state.model';
 import { AuthService } from '@core/services/auth/auth.service';
-import { LoginRequest, LoginFailure, LoginSuccess, Logout } from './auth.actions';
+import { LoginRequest, LoginFailure, LoginSuccess, Logout, RegisterRequest, RegisterFailure, RegisterSuccess } from './auth.actions';
 
 @State<AuthStateModel>({
     name: 'Auth',
@@ -38,6 +38,41 @@ export class AuthState {
 
     @Action(LoginSuccess)
     loginSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginSuccess) {
+        patchState({
+            loading: false,
+            loaded: true,
+            failed: false,
+            isAuthenticated: true,
+            user: action.payload.user,
+            token: action.payload.token
+        });
+        dispatch(new Navigate(['/forecast']));
+    }
+
+    @Action(RegisterRequest)
+    registerRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: RegisterRequest) {
+        patchState({
+            loading: true
+        });
+        return this._authService.register(action.payload.data).subscribe(
+            res => dispatch(new RegisterSuccess({ user: res.user, token: res.token })),
+            err => dispatch(new RegisterFailure(err))
+        )
+    }
+
+    @Action(RegisterFailure)
+    registerFailure({ patchState }: StateContext<AuthStateModel>, action: RegisterFailure) {
+        patchState({
+            loading: false,
+            loaded: true,
+            failed: true
+        });
+        console.log(action.payload.error);
+        return null;
+    }
+
+    @Action(RegisterSuccess)
+    registerSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, action: RegisterSuccess) {
         patchState({
             loading: false,
             loaded: true,
