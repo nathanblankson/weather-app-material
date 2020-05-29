@@ -10,6 +10,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'register',
+        loadChildren: './+register/register.module#RegisterModule',
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'forecast',
         loadChildren: './+forecast/forecast.module#ForecastModule',
         canLoad: [AuthGuard]

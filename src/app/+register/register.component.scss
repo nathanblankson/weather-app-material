@@ -1,0 +1,19 @@
+.register-container {
+    height: 100%;
+    display: flex;
+
+    .register {
+        margin: auto;
+        max-width: 300px;
+        text-align: center;
+        font-family: 'Lato', sans-serif;
+
+        .row {
+            display: flex;
+        }
+
+        mat-form-field, button {
+            width: 100%;
+        }
+    }
+}
