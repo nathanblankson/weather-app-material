@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
 
-import { LayoutSelectors, OpenSidenav, CloseSidenav } from '@store/index';
+import { LayoutSelectors, ToggleSidenav } from '@store/index';
 
 @Component({
     selector: 'app-navigation-wrapper',
@@ -15,8 +15,8 @@ import { LayoutSelectors, OpenSidenav, CloseSidenav } from '@store/index';
     encapsulation: ViewEncapsulation.None,
 })
 export class NavigationWrapperComponent implements OnInit {
-    @ViewChild('drawer', { static: false })
-    drawer: MatSidenav;
+    @ViewChild('sidenav', { static: false })
+    sidenav: MatSidenav;
 
     opened: boolean;
 
@@ -29,9 +29,11 @@ export class NavigationWrapperComponent implements OnInit {
 
     constructor(private breakpointObserver: BreakpointObserver, private _store: Store) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.opened = this._store.selectSnapshot(LayoutSelectors.showSidenav);
+    }
 
-    onToggleSidenav() {
-        this.drawer.toggle();
+    onOpenedChange(e: boolean) {
+        this._store.dispatch(new ToggleSidenav({ data: e }));
     }
 }

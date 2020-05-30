@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'" opened=false>
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="opened"
+        (openedChange)="onOpenedChange($event)">
         <mat-toolbar>
             <a class="home-button" routerLink="/">
                 <img class="app-logo" src="assets/images/brand/sb_logo_white.svg" />
@@ -11,7 +12,7 @@
     <mat-sidenav-content class="sidenav-content">
         <mat-toolbar class="sidenav-content-toolbar" color="primary">
             <button mat-icon-button class="menu-button" type="button" aria-label="Toggle sidenav"
-                (tap)="onToggleSidenav()">
+                (tap)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <span class="filler">
