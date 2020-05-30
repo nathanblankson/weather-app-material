@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
-
-import { ForecastService } from '@core/services/forecast/forecast.service';
+import { ForecastRequest } from '@store/forecast';
 
 @Component({
     selector: 'app-forecast',
@@ -66,7 +65,7 @@ export class ForecastComponent implements OnInit {
     currentForecast;
     dailyForecast;
 
-    constructor(private _forecastService: ForecastService, private _fb: FormBuilder, private _http: HttpClient) { }
+    constructor(private _store: Store, private _fb: FormBuilder) { }
 
     ngOnInit() {
         this.forecastSearchForm = this.initForm();
@@ -83,16 +82,7 @@ export class ForecastComponent implements OnInit {
         }
         const query: string = this.forecastSearchForm.get('location').value.replace(/\s*,\s*/g, ",");
 
-        // Get the current weather data
-        // this._forecastService.getCurrentWeather(query).subscribe((res) => {
-        //     this.currentForecast = res;
-        //     console.log(res);
-        // });
-
-        // this._forecastService.getCurrentWeatherMock({ cityName }).subscribe((res) => {
-        //     this.currentForecast = res;
-        //     console.log(res);
-        // });
+        this._store.dispatch(new ForecastRequest({ data: query }));
     }
 
     private initForm(): FormGroup {

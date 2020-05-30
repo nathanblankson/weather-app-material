@@ -26,9 +26,8 @@ export class ForecastService {
             );
     }
 
-    getCurrentWeatherMock(params: { cityName: string }) {
-        const { cityName } = params;
-        const url = `assets/mock-data/openweather/current-${cityName.toLowerCase()}.json`;
+    getCurrentWeatherMock(query: string) {
+        const url = `assets/mock-data/openweather/current-${query.toLowerCase()}.json`;
         return this._http.get(url)
             .pipe(
                 map(data => data),
