@@ -1,5 +1,5 @@
 export interface LayoutStateModel {
-    showSidenav: boolean
+    showSidenav: boolean;
 }
 
 export const defaultLayoutState = {
