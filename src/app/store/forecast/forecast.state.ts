@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { State, Action, StateContext } from '@ngxs/store';
 
 import { ForecastStateModel, defaultForecastState } from './forecast-state.model';
 import { ForecastService } from '@core/services/forecast/forecast.service';
 import { ForecastRequest, ForecastFailure, ForecastSuccess } from './forecast.actions';
+import { Logout } from '@store/auth';
 
 @State<ForecastStateModel>({
     name: 'Forecast',
@@ -27,7 +28,9 @@ export class ForecastState {
     @Action(ForecastRequest)
     forecastMock({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
         patchState({
-            loading: true
+            loading: true,
+            loaded: false,
+            failed: false
         });
         return this._forecastService.getForecastMock(action.payload.data).subscribe(
             res => dispatch(new ForecastSuccess({ data: res })),
@@ -56,5 +59,10 @@ export class ForecastState {
             currentForecast,
             dailyForecast
         });
+    }
+
+    @Action(Logout)
+    logout({ setState }: StateContext<ForecastStateModel>) {
+        setState(defaultForecastState);
     }
 }
