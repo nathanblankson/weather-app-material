@@ -8,7 +8,7 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 export class ForecastCurrentComponent implements OnInit {
 
     @Input()
-    currentForecast;
+    currentForecast: any;
 
     @Input()
     tempUnit;
@@ -16,5 +16,9 @@ export class ForecastCurrentComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
+        console.log(this.currentForecast);
+        // this.currentForecast.subscribe((res) => {
+        //     console.log(res);
+        // });
     }
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
-import { ForecastRequest } from '@store/forecast';
+import { ForecastRequest, ForecastState, ForecastSelectors } from '@store/forecast';
+import { ForecastStateModel } from '@store/forecast/forecast-state.model';
 
 @Component({
     selector: 'app-forecast',
@@ -62,8 +63,10 @@ export class ForecastComponent implements OnInit {
     options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
     filteredOptions: Observable<string[]>;
 
-    currentForecast;
+    // currentForecast;
     dailyForecast;
+
+    currentForecast: Observable<any>;
 
     constructor(private _store: Store, private _fb: FormBuilder) { }
 
@@ -74,6 +77,7 @@ export class ForecastComponent implements OnInit {
                 startWith(''),
                 map(value => this._filter(value))
             );
+        this.currentForecast = this._store.select(ForecastSelectors.currentForecast);
     }
 
     onChangeLocation() {

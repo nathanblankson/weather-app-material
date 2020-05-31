@@ -18,7 +18,7 @@
             </form>
         </div>
 
-        <app-forecast-current *ngIf="currentForecast" [currentForecast]="currentForecast">
+        <app-forecast-current *ngIf="currentForecast" [currentForecast]="(currentForecast | async)">
         </app-forecast-current>
 
         <app-forecast-daily *ngIf="dailyForecast" [dailyForecast]=dailyForecast></app-forecast-daily>

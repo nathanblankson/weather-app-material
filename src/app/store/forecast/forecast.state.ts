@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 
 import { ForecastStateModel, defaultForecastState } from './forecast-state.model';
 import { ForecastService } from '@core/services/forecast/forecast.service';
@@ -43,17 +43,18 @@ export class ForecastState {
             failed: true
         });
         console.log(action.payload.error);
-        return null;
     }
 
     @Action(ForecastSuccess)
     forecastSuccess({ patchState }: StateContext<ForecastStateModel>, action: ForecastSuccess) {
+        const currentForecast = action.payload.data.current;
+        const dailyForecast = action.payload.data.daily;
         patchState({
             loading: false,
             loaded: true,
-            failed: false
+            failed: false,
+            currentForecast,
+            dailyForecast
         });
-        console.log(action.payload.data);
-        return null;
     }
 }
