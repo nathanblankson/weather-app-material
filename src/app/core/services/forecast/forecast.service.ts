@@ -10,44 +10,22 @@ import { environment } from '@environment/environment';
 })
 export class ForecastService {
 
-    private openWeatherKey = environment.openWeatherKey
-    private openWeatherApi = 'http://api.openweathermap.org/data/2.5';
+    private forecastApi = environment.apiServer + '/forecast';
 
     constructor(private _http: HttpClient) { }
 
-    getCurrentWeather(query: string) {
-        const params = new HttpParams()
-            .set('q', query)
-            .set('appid', this.openWeatherKey);
-        return this._http.get(`${this.openWeatherApi}/weather`, { params })
-            .pipe(
-                map(data => data),
-                catchError(err => throwError(err))
-            );
-    }
-
-    getCurrentWeatherMock(query: string) {
-        const url = `assets/mock-data/openweather/current-${query.toLowerCase()}.json`;
-        return this._http.get(url)
-            .pipe(
-                map(data => data),
-                catchError(err => throwError(err))
-            );
-    }
-
     getForecast(query: string) {
         const params = new HttpParams()
-            .set('q', query)
-            .set('appid', this.openWeatherKey);
-        return this._http.get(`${this.openWeatherApi}/forecast`, { params })
+            .set('q', query);
+        return this._http.get(`${this.forecastApi}`, { params })
             .pipe(
                 map(data => data),
                 catchError(err => throwError(err))
             );
     }
 
-    getForecastMock() {
-        const url = `assets/mock-data/openweather/5-day-forecast-response.json`;
+    getForecastMock(query: string) {
+        const url = `assets/mock-data/openweather/one-call-${query.toLowerCase()}.json`;
         return this._http.get(url)
             .pipe(
                 map(data => data),

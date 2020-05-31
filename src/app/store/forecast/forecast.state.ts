@@ -13,12 +13,23 @@ import { ForecastRequest, ForecastFailure, ForecastSuccess } from './forecast.ac
 export class ForecastState {
     constructor(private _forecastService: ForecastService) { }
 
+    // @Action(ForecastRequest)
+    // forecastRequest({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
+    //     patchState({
+    //         loading: true
+    //     });
+    //     return this._forecastService.getForecast(action.payload.data).subscribe(
+    //         res => dispatch(new ForecastSuccess({ data: res })),
+    //         err => dispatch(new ForecastFailure(err))
+    //     );
+    // }
+
     @Action(ForecastRequest)
-    forecastRequest({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
+    forecastMock({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
         patchState({
             loading: true
         });
-        return this._forecastService.getCurrentWeatherMock(action.payload.data).subscribe(
+        return this._forecastService.getForecastMock(action.payload.data).subscribe(
             res => dispatch(new ForecastSuccess({ data: res })),
             err => dispatch(new ForecastFailure(err))
         );

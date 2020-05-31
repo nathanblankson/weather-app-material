@@ -81,7 +81,6 @@ export class ForecastComponent implements OnInit {
             return;
         }
         const query: string = this.forecastSearchForm.get('location').value.replace(/\s*,\s*/g, ",");
-
         this._store.dispatch(new ForecastRequest({ data: query }));
     }
 
