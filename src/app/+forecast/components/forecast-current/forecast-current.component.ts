@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-forecast-current',
@@ -6,14 +6,11 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
     styleUrls: ['./forecast-current.component.scss']
 })
 export class ForecastCurrentComponent implements OnInit {
-
     @Input()
     currentForecast: any;
-
-    @Input()
-    tempUnit;
 
     constructor() { }
 
     ngOnInit() { }
 }
+
