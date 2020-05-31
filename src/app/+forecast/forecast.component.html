@@ -18,10 +18,11 @@
             </form>
         </div>
 
-        <app-forecast-current *ngIf="currentForecast" [currentForecast]="(currentForecast | async)">
+        <app-forecast-current *ngIf="(currentForecast | async)" [currentForecast]="(currentForecast | async)">
         </app-forecast-current>
 
-        <app-forecast-daily *ngIf="dailyForecast" [dailyForecast]="(dailyForecast | async)"></app-forecast-daily>
+        <app-forecast-daily *ngIf="(dailyForecast | async)" [dailyForecast]="(dailyForecast | async)">
+        </app-forecast-daily>
 
         <!-- TODO: Requires paid access for hourly breakdown -->
         <!-- <app-forecast-hourly></app-forecast-hourly> -->
