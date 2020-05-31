@@ -1,18 +1,14 @@
+import { StatusStateModel, defaultStatusState } from '@store/state.model';
 import { User } from '@core/models';
 
-export interface AuthStateModel {
-    loading: boolean;
-    loaded: boolean;
-    failed: boolean;
+export interface AuthStateModel extends StatusStateModel {
     isAuthenticated: boolean;
     user: User | null;
     token: string | null;
 }
 
 export const defaultAuthState = {
-    loading: false,
-    loaded: false,
-    failed: false,
+    ...defaultStatusState,
     isAuthenticated: false,
     user: null,
     token: null

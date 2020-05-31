@@ -17,7 +17,9 @@ export class AuthState {
     @Action(LoginRequest)
     loginRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginRequest) {
         patchState({
-            loading: true
+            loading: true,
+            loaded: false,
+            failed: false
         });
         return this._authService.login(action.payload.data).subscribe(
             res => dispatch(new LoginSuccess({ user: res.user, token: res.token })),
@@ -29,7 +31,7 @@ export class AuthState {
     loginFailure({ patchState }: StateContext<AuthStateModel>, action: LoginFailure) {
         patchState({
             loading: false,
-            loaded: true,
+            loaded: false,
             failed: true
         });
         console.log(action.payload.error);
@@ -52,7 +54,9 @@ export class AuthState {
     @Action(RegisterRequest)
     registerRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: RegisterRequest) {
         patchState({
-            loading: true
+            loading: true,
+            loaded: false,
+            failed: false
         });
         return this._authService.register(action.payload.data).subscribe(
             res => dispatch(new RegisterSuccess({ user: res.user, token: res.token })),
@@ -64,7 +68,7 @@ export class AuthState {
     registerFailure({ patchState }: StateContext<AuthStateModel>, action: RegisterFailure) {
         patchState({
             loading: false,
-            loaded: true,
+            loaded: false,
             failed: true
         });
         console.log(action.payload.error);

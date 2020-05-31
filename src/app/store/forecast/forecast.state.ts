@@ -42,7 +42,7 @@ export class ForecastState {
     forecastFailure({ patchState }: StateContext<ForecastStateModel>, action: ForecastFailure) {
         patchState({
             loading: false,
-            loaded: true,
+            loaded: false,
             failed: true
         });
         console.log(action.payload.error);
