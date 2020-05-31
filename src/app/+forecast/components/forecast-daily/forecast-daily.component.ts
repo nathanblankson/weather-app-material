@@ -11,10 +11,11 @@ export class ForecastDailyComponent implements OnInit {
     dailyForecast;
 
     // TODO: Requires paid access for hourly breakdown
-    selectedItem = 1;
+    selectedIndex = 0;
 
     constructor() { }
 
     ngOnInit() {
+
     }
 }

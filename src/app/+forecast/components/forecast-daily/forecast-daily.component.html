@@ -2,10 +2,10 @@
     <div class="forecast-daily__controls">Daily</div>
     <div class="forecast-daily__cards">
         <app-daily-card
-            *ngFor="let day of days;
+            *ngFor="let day of dailyForecast;
             let i = index" [day]="day"
-            [active]="selectedItem == i"
-            (click)="selectedItem = i">
+            [active]="selectedIndex == i"
+            (click)="selectedIndex = i">
         </app-daily-card>
     </div>
 </div>

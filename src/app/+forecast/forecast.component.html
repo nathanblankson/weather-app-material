@@ -21,7 +21,7 @@
         <app-forecast-current *ngIf="currentForecast" [currentForecast]="(currentForecast | async)">
         </app-forecast-current>
 
-        <app-forecast-daily *ngIf="dailyForecast" [dailyForecast]=dailyForecast></app-forecast-daily>
+        <app-forecast-daily *ngIf="dailyForecast" [dailyForecast]="(dailyForecast | async)"></app-forecast-daily>
 
         <!-- TODO: Requires paid access for hourly breakdown -->
         <!-- <app-forecast-hourly></app-forecast-hourly> -->

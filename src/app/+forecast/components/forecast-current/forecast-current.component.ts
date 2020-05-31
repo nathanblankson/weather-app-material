@@ -15,10 +15,5 @@ export class ForecastCurrentComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-        console.log(this.currentForecast);
-        // this.currentForecast.subscribe((res) => {
-        //     console.log(res);
-        // });
-    }
+    ngOnInit() { }
 }

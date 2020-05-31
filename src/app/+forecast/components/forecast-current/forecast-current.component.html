@@ -4,7 +4,7 @@
     </div> -->
 
     <div class="forecast-current__temperature">
-        {{ currentForecast?.temp - 273.15 | number : '1.0-0' }}&deg;
+        {{ currentForecast?.temp - 273.15 | number: '1.0-0' }}&deg;
         <div class="forecast-current__unit">
             <div>C</div>
             <div>F</div>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="forecast-current__details">
-        <div>Feels Like {{ currentForecast?.feels_like - 273.15 | number : '1.0-0' }}&deg;</div>
+        <div>Feels Like {{ currentForecast?.feels_like - 273.15 | number: '1.0-0' }}&deg;</div>
         <div>
             Wind <span><i class="material-icons">near_me</i></span> {{ currentForecast?.wind_speed }} m/s
         </div>
