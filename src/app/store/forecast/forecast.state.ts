@@ -14,29 +14,29 @@ import { Logout } from '@store/auth';
 export class ForecastState {
     constructor(private _forecastService: ForecastService) { }
 
-    // @Action(ForecastRequest)
-    // forecastRequest({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
-    //     patchState({
-    //         loading: true
-    //     });
-    //     return this._forecastService.getForecast(action.payload.data).subscribe(
-    //         res => dispatch(new ForecastSuccess({ data: res })),
-    //         err => dispatch(new ForecastFailure(err))
-    //     );
-    // }
-
     @Action(ForecastRequest)
-    forecastMock({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
+    forecastRequest({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
         patchState({
-            loading: true,
-            loaded: false,
-            failed: false
+            loading: true
         });
-        return this._forecastService.getForecastMock(action.payload.data).subscribe(
+        return this._forecastService.getForecast(action.payload.data).subscribe(
             res => dispatch(new ForecastSuccess({ data: res })),
             err => dispatch(new ForecastFailure(err))
         );
     }
+
+    // @Action(ForecastRequest)
+    // forecastMock({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
+    //     patchState({
+    //         loading: true,
+    //         loaded: false,
+    //         failed: false
+    //     });
+    //     return this._forecastService.getForecastMock(action.payload.data).subscribe(
+    //         res => dispatch(new ForecastSuccess({ data: res })),
+    //         err => dispatch(new ForecastFailure(err))
+    //     );
+    // }
 
     @Action(ForecastFailure)
     forecastFailure({ patchState }: StateContext<ForecastStateModel>, action: ForecastFailure) {
