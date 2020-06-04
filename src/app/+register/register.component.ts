@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
 
     registerForm: FormGroup;
 
+    show: boolean = false;
+
     constructor(private _fb: FormBuilder, private _store: Store) { }
 
     ngOnInit() {
