@@ -1,10 +1,13 @@
 .register-container {
     height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .register {
-        margin: auto;
         max-width: 300px;
+        margin-bottom: 20px;
         text-align: center;
         font-family: 'Lato', sans-serif;
 
