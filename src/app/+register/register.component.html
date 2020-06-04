@@ -1,39 +1,34 @@
 <div class="register-container">
     <mat-card class="register">
-        <h2>Register</h2>
+        <h2>Sign Up</h2>
 
         <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
             <div class="row">
-                <mat-form-field>
+                <mat-form-field class="register__field">
                     <input matInput placeholder="Firstname" formControlName="firstname">
                     <mat-error *ngIf="registerForm.controls.firstname.invalid">Please enter a firstname</mat-error>
                 </mat-form-field>
 
-                <mat-form-field>
+                <div class="spacer"></div>
+
+                <mat-form-field class="register__field">
                     <input matInput placeholder="Lastname" formControlName="lastname">
                     <mat-error *ngIf="registerForm.controls.lastname.invalid">Please enter a lastname</mat-error>
                 </mat-form-field>
             </div>
 
-            <mat-form-field class="">
+            <mat-form-field class="register__field">
                 <input matInput placeholder="Email" formControlName="email">
                 <mat-error *ngIf="registerForm.controls.email.invalid">Please enter an email address</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="">
+            <mat-form-field class="register__field">
                 <input matInput placeholder="Password" type="password" formControlName="password">
                 <mat-error *ngIf="registerForm.controls.password.invalid">Please enter a password</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="">
-                <input matInput placeholder="Confirm Password" type="password"
-                    formControlName="passwordConfirmation">
-                <mat-error *ngIf="registerForm.controls.passwordConfirmation.invalid">Please enter the same password
-                </mat-error>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" class="" type="submit">
-                Register
+            <button mat-raised-button color="primary" class="register__field" type="submit">
+                Sign Up
             </button>
         </form>
     </mat-card>
