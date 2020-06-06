@@ -10,7 +10,7 @@
                         formControlName="location"
                         [matAutocomplete]="autoLocation">
                     <mat-autocomplete #autoLocation="matAutocomplete" (optionSelected)="onChangeLocation()">
-                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
                             {{option}}
                         </mat-option>
                     </mat-autocomplete>
@@ -18,13 +18,13 @@
             </form>
         </div>
 
-        <app-forecast-current *ngIf="(currentForecast | async)" [currentForecast]="(currentForecast | async)">
+        <app-forecast-current *ngIf="(currentForecast$ | async)" [currentForecast]="(currentForecast$ | async)">
         </app-forecast-current>
 
-        <app-forecast-daily *ngIf="(dailyForecast | async)" [dailyForecast]="(dailyForecast | async)">
+        <app-forecast-daily *ngIf="(dailyForecast$ | async)" [dailyForecast]="(dailyForecast$ | async)">
         </app-forecast-daily>
 
         <!-- TODO: Requires paid access for hourly breakdown -->
-        <!-- <app-forecast-hourly></app-forecast-hourly> -->
+        <app-forecast-hourly></app-forecast-hourly>
     </div>
 </app-navigation-wrapper>

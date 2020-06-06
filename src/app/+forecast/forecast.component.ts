@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators'
-import { ForecastRequest, ForecastSelectors } from '@store/forecast';
+import { ForecastRequest, ForecastSelectors, ForecastStateModel } from '@store/forecast';
 
 @Component({
     selector: 'app-forecast',
@@ -15,22 +15,20 @@ export class ForecastComponent implements OnInit {
     forecastSearchForm: FormGroup;
 
     options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
-    filteredOptions: Observable<string[]>;
+    filteredOptions$: Observable<string[]>;
 
-    currentForecast: Observable<any>;
-    dailyForecast: Observable<any>;
+    @Select(ForecastSelectors.currentForecast) currentForecast$: Observable<ForecastStateModel>;
+    @Select(ForecastSelectors.dailyForecast) dailyForecast$: Observable<ForecastStateModel>;
 
     constructor(private _store: Store, private _fb: FormBuilder) { }
 
     ngOnInit() {
         this.forecastSearchForm = this.initForm();
-        this.filteredOptions = this.forecastSearchForm.controls.location.valueChanges
+        this.filteredOptions$ = this.forecastSearchForm.controls.location.valueChanges
             .pipe(
                 startWith(''),
                 map(value => this._filter(value))
             );
-        this.currentForecast = this._store.select(ForecastSelectors.currentForecast);
-        this.dailyForecast = this._store.select(ForecastSelectors.dailyForecast);
     }
 
     onChangeLocation() {
