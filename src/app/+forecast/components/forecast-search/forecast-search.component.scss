@@ -1,0 +1,21 @@
+:host {
+    width: 70%;
+    max-width: 500px;
+
+    .forecast-search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+
+        form {
+            display: inherit;
+            justify-content: inherit;
+            width: inherit;
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -9,9 +9,10 @@ import { DailyCardComponent } from './components/forecast-daily/daily-card/daily
 import { ForecastCurrentComponent } from './components/forecast-current/forecast-current.component';
 import { ForecastHourlyComponent } from './components/forecast-hourly/forecast-hourly.component';
 import { ForecastDailyComponent } from './components/forecast-daily/forecast-daily.component';
+import { ForecastSearchComponent } from './components/forecast-search/forecast-search.component';
 
 @NgModule({
-    declarations: [ForecastComponent, DailyCardComponent, ForecastCurrentComponent, ForecastHourlyComponent, ForecastDailyComponent],
+    declarations: [ForecastComponent, DailyCardComponent, ForecastCurrentComponent, ForecastHourlyComponent, ForecastDailyComponent, ForecastSearchComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,

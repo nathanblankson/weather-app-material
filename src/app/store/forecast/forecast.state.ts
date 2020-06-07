@@ -25,19 +25,6 @@ export class ForecastState {
         );
     }
 
-    // @Action(ForecastRequest)
-    // forecastMock({ patchState, dispatch }: StateContext<ForecastStateModel>, action: ForecastRequest) {
-    //     patchState({
-    //         loading: true,
-    //         loaded: false,
-    //         failed: false
-    //     });
-    //     return this._forecastService.getForecastMock(action.payload.data).subscribe(
-    //         res => dispatch(new ForecastSuccess({ data: res })),
-    //         err => dispatch(new ForecastFailure(err))
-    //     );
-    // }
-
     @Action(ForecastFailure)
     forecastFailure({ patchState }: StateContext<ForecastStateModel>, action: ForecastFailure) {
         patchState({
@@ -50,14 +37,13 @@ export class ForecastState {
 
     @Action(ForecastSuccess)
     forecastSuccess({ patchState }: StateContext<ForecastStateModel>, action: ForecastSuccess) {
-        const currentForecast = action.payload.data.current;
-        const dailyForecast = action.payload.data.daily;
+        console.log(action.payload.data);
         patchState({
             loading: false,
             loaded: true,
             failed: false,
-            currentForecast,
-            dailyForecast
+            currentForecast: action.payload.data.forecast.current,
+            dailyForecast: action.payload.data.forecast.daily,
         });
     }
 
