@@ -13,4 +13,9 @@ export class ForecastSelectors {
     static dailyForecast(state: ForecastStateModel) {
         return state.dailyForecast;
     }
+
+    @Selector([ForecastState])
+    static location(state: ForecastStateModel) {
+        return state.location;
+    }
 }

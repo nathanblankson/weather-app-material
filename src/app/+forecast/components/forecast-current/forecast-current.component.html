@@ -1,7 +1,9 @@
 <div class="forecast-current">
-    <!-- <div class="forecast-current__location">
-        {{ currentForecast?.name }}, {{ currentForecast?.sys.country }}
-    </div> -->
+    <div class="forecast-current__location">
+        {{ (location?.city) ? location.city + ',' : '' }}
+        {{ (location?.state) ? location.state + ',' : '' }}
+        {{ location?.country }}
+    </div>
 
     <div class="forecast-current__temperature">
         {{ currentForecast?.temp - 273.15 | number: '1.0-0' }}&deg;

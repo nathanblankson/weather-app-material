@@ -17,6 +17,10 @@ export class AuthService {
         return this._http.post<AuthRO>(`${this.api}/${authType}`, data);
     }
 
+    getToken(): string | null {
+        return localStorage.getItem('token');
+    }
+
     login(data: AuthDTO): Observable<AuthRO> {
         return this.auth('login', data);
     }

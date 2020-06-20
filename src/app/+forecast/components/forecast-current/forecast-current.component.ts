@@ -9,6 +9,9 @@ export class ForecastCurrentComponent implements OnInit {
     @Input()
     currentForecast: any;
 
+    @Input()
+    location: any;
+
     constructor() { }
 
     ngOnInit() { }

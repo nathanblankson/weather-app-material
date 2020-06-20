@@ -44,6 +44,7 @@ export class ForecastState {
             failed: false,
             currentForecast: action.payload.data.forecast.current,
             dailyForecast: action.payload.data.forecast.daily,
+            location: action.payload.data.location
         });
     }
 

@@ -12,6 +12,7 @@ import { ForecastSelectors, ForecastStateModel } from '@store/forecast';
 export class ForecastComponent implements OnInit {
     @Select(ForecastSelectors.currentForecast) currentForecast$: Observable<ForecastStateModel>;
     @Select(ForecastSelectors.dailyForecast) dailyForecast$: Observable<ForecastStateModel>;
+    @Select(ForecastSelectors.location) location$: Observable<ForecastStateModel>;
 
     constructor() { }
 

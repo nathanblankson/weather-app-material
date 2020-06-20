@@ -26,10 +26,10 @@ import { ForecastModule } from '@forcast/forecast.module';
         ForecastModule,
         HttpClientModule,
         NgxsModule.forRoot(appState),
+        // NgxsStoragePluginModule.forRoot({
+        //     key: appState
+        // }),
         NgxsRouterPluginModule.forRoot(),
-        NgxsStoragePluginModule.forRoot({
-            key: appState
-        }),
         NgxsReduxDevtoolsPluginModule.forRoot()
     ],
     bootstrap: [AppComponent],

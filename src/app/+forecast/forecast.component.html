@@ -2,10 +2,15 @@
     <div class="forecast">
         <app-forecast-search></app-forecast-search>
 
-        <app-forecast-current *ngIf="(currentForecast$ | async)" [currentForecast]="(currentForecast$ | async)">
+        <app-forecast-current
+            *ngIf="(currentForecast$ | async)"
+            [currentForecast]="(currentForecast$ | async)"
+            [location]="(location$ | async)">
         </app-forecast-current>
 
-        <app-forecast-daily *ngIf="(dailyForecast$ | async)" [dailyForecast]="(dailyForecast$ | async)">
+        <app-forecast-daily
+            *ngIf="(dailyForecast$ | async)"
+            [dailyForecast]="(dailyForecast$ | async)">
         </app-forecast-daily>
 
         <!-- TODO: Requires paid access for hourly breakdown -->
