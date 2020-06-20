@@ -1,12 +1,18 @@
+// Angular depedencies
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+// Local files
+import { SharedModule } from '@shared/shared.module';
+import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
-import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 
 @NgModule({
-  declarations: [SettingsComponent],
-  imports: [CommonModule, SettingsRoutingModule, NavigationModule],
+    imports: [
+        SharedModule,
+        NavigationModule,
+        SettingsRoutingModule
+    ],
+    declarations: [SettingsComponent]
 })
-export class SettingsModule {}
+export class SettingsModule { }

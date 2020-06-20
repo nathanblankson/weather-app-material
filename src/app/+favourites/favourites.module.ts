@@ -1,14 +1,24 @@
+// Angular dependencies
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+// Local files
+import { SharedModule } from '@shared/shared.module';
+import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { FavouritesRoutingModule } from './favourites-routing.module';
 import { FavouritesComponent } from './favourites.component';
-import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { FavouriteLocationsComponent } from './components/favourite-locations/favourite-locations.component';
 import { LocationCardComponent } from './components/favourite-locations/location-card/location-card.component';
 
 @NgModule({
-  declarations: [FavouritesComponent, FavouriteLocationsComponent, LocationCardComponent],
-  imports: [CommonModule, FavouritesRoutingModule, NavigationModule],
+    imports: [
+        SharedModule,
+        NavigationModule,
+        FavouritesRoutingModule
+    ],
+    declarations: [
+        FavouritesComponent,
+        FavouriteLocationsComponent,
+        LocationCardComponent
+    ]
 })
-export class FavouritesModule {}
+export class FavouritesModule { }

@@ -1,20 +1,16 @@
+// Angular dependencies
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Local files
+import { SharedModule } from '@shared/shared.module';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
-import { MaterialModule } from '@shared/modules/material/material.module';
-
 
 @NgModule({
-    declarations: [RegisterComponent],
     imports: [
-        CommonModule,
-        RegisterRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MaterialModule
-    ]
+        SharedModule,
+        RegisterRoutingModule
+    ],
+    declarations: [RegisterComponent]
 })
 export class RegisterModule { }

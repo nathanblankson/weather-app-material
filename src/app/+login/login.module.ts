@@ -1,20 +1,16 @@
+// Angular dependencies
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Local files
+import { SharedModule } from '@shared/shared.module';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { MaterialModule } from '@shared/modules/material/material.module';
-
 
 @NgModule({
-    declarations: [LoginComponent],
     imports: [
-        CommonModule,
-        LoginRoutingModule,
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule
-    ]
+        SharedModule,
+        LoginRoutingModule
+    ],
+    declarations: [LoginComponent]
 })
 export class LoginModule { }
