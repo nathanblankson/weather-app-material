@@ -3,6 +3,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 // Other dependencies
 import { NgxsModule } from '@ngxs/store';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
@@ -13,6 +14,9 @@ import { CustomRouterStateSerializer } from '@store/router/router-state.serializ
 @NgModule({
     imports: [
         NgxsModule.forRoot(appState),
+        NgxsStoragePluginModule.forRoot({
+            key: ['Auth']
+        }),
         NgxsRouterPluginModule.forRoot(),
         NgxsReduxDevtoolsPluginModule.forRoot()
     ],

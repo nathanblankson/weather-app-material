@@ -48,7 +48,6 @@ export class AuthState {
             user: action.payload.user,
             token: action.payload.token
         });
-        localStorage.setItem('token', action.payload.token);
         dispatch(new Navigate(['/forecast']));
     }
 
