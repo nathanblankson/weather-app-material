@@ -15,7 +15,7 @@ import { CustomRouterStateSerializer } from '@store/router/router-state.serializ
     imports: [
         NgxsModule.forRoot(appState),
         NgxsStoragePluginModule.forRoot({
-            key: ['Auth']
+            key: ['Auth', 'Forecast']
         }),
         NgxsRouterPluginModule.forRoot(),
         NgxsReduxDevtoolsPluginModule.forRoot()

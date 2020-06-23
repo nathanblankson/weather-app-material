@@ -1,6 +1,5 @@
 :host {
   margin: 0 auto;
-  height: 205px;
 
   .daily-card {
     position: relative;
@@ -10,8 +9,17 @@
     padding: 20px;
     cursor: pointer;
 
-    div {
-      margin-bottom: 15px;
+    div:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 90px;
+        }
     }
 
     .temperature {
@@ -29,17 +37,6 @@
     //  TODO: Requires paid access for hourly breakdown
     &--is-active {
       background-color: #33364144;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -25px;
-        width: 50px;
-        height: 50px;
-        align-self: center;
-        background-color: #33364144;
-        clip-path: polygon(50% 100%, 0 50%, 100% 50%);
-      }
     }
   }
 

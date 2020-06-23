@@ -6,7 +6,7 @@
     </div>
 
     <div class="forecast-current__temperature">
-        {{ currentForecast?.temp - 273.15 | number: '1.0-0' }}&deg;
+        {{ currentForecast?.temp | formatTemperature }}
         <div class="forecast-current__unit">
             <div>C</div>
             <div>F</div>
@@ -18,17 +18,13 @@
     </div>
 
     <div class="forecast-current__details">
-        <div>Feels Like {{ currentForecast?.feels_like - 273.15 | number: '1.0-0' }}&deg;</div>
-        <!-- <div>
-            Wind <span><i [ngStyle]="{'transform': 'rotate(' + (currentForecast?.wind_deg - 46) + 'deg)'}"
-                    class="material-icons">near_me</i></span> {{ currentForecast?.wind_speed }} m/s
-        </div> -->
+        <div>Feels Like {{ currentForecast?.feels_like | formatTemperature }}</div>
         <div>
             Wind <span><i class="material-icons">near_me</i></span> {{ currentForecast?.wind_speed }} m/s
         </div>
         <div>Barometer {{ currentForecast?.pressure }} mbar</div>
         <div>Visibility {{ currentForecast?.visibility }} mi</div>
         <div>Humidity {{ currentForecast?.humidity }}%</div>
-        <div>Dew Point 11&deg;</div>
+        <div>Dew Point {{ currentForecast?.dew_point | formatTemperature }}</div>
     </div>
 </div>

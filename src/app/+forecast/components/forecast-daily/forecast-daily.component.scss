@@ -11,7 +11,7 @@
 
     &__cards {
       display: flex;
-      overflow: auto;
+      overflow-x: auto;
 
       &::-webkit-scrollbar {
         background: transparent;

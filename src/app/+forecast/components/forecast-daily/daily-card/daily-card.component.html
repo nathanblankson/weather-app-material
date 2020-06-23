@@ -1,9 +1,11 @@
 <div class="daily-card" [ngClass]="{'daily-card--is-active': active}" (click)="onClick()">
     <div>{{ day.dt * 1000 | date: 'E, d MMM' }}</div>
-    <div>Icon</div>
+    <div class="daily-card__icon">
+        <img src="assets/images/icons/weather-icons-2x/{{ day.weather[0].icon }}@2x.png" alt="">
+    </div>
     <div class="daily-card__temperature">
-        <span class="temperature__high">{{ day.temp.max - 273.15 | number: '1.0-0' }}&deg;</span>
-        <span class="temperature__low">{{ day.temp.min - 273.15 | number: '1.0-0' }}&deg;</span>
+        <span class="temperature__high">{{ day.temp.max | formatTemperature }}</span>
+        <span class="temperature__low">{{ day.temp.min | formatTemperature }}</span>
     </div>
     <div class="daily-card__summary">{{ day.weather[0].main }}</div>
 </div>

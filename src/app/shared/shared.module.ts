@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Local files
 import { MaterialModule } from './modules/material/material.module';
+import { FormatTemperaturePipe } from './pipes/format-temperature/format-temperature.pipe';
 
 @NgModule({
     imports: [
@@ -24,7 +25,11 @@ import { MaterialModule } from './modules/material/material.module';
         HttpClientModule,
         MaterialModule,
         FormsModule,
-        ReactiveFormsModule
-    ]
+        ReactiveFormsModule,
+
+        // Pipes
+        FormatTemperaturePipe
+    ],
+    declarations: [FormatTemperaturePipe]
 })
 export class SharedModule { }
