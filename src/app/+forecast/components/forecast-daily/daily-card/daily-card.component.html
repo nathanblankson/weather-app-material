@@ -1,7 +1,7 @@
 <div class="daily-card" [ngClass]="{'daily-card--is-active': active}" (click)="onClick()">
     <div>{{ day.dt * 1000 | date: 'E, d MMM' }}</div>
     <div class="daily-card__icon">
-        <img src="assets/images/icons/weather-icons/blue/day/cloudy.svg" alt="" type="image/svg+xml">
+        <img src="assets/images/icons/weather-icons/blue/day/{{ day.weather[0].icon }}.svg" alt="" type="image/svg+xml">
     </div>
     <div class="daily-card__temperature">
         <span class="temperature__high">{{ day.temp.max | formatTemperature }}</span>
