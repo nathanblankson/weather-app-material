@@ -7,8 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Local files
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
-import { NavigationModule } from '@shared/modules/navigation/navigation.module';
-import { ForecastModule } from '@forcast/forecast.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,8 +17,6 @@ import { AppComponent } from './app.component';
         HttpClientModule,
         CoreModule,
         SharedModule,
-        NavigationModule,
-        ForecastModule,
         AppRoutingModule
     ],
     declarations: [AppComponent],

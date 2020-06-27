@@ -12,16 +12,16 @@ import { AuthSelectors } from '@store/auth/auth.selectors';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class IsLoggedGuard implements CanActivate {
 
     constructor(private _store: Store) { }
 
-    // Unautheticated user attempts to access route requiring auth, don't show, redirect.
+    // Authenticated user attempts to access route requiring no auth, don't show, redirect.
     canActivate(): boolean {
         const isAuthenticated = this._store.selectSnapshot(AuthSelectors.isAuthenticated);
-        if (!isAuthenticated) {
-            this._store.dispatch(new Navigate(['/login']));
+        if (isAuthenticated) {
+            this._store.dispatch(new Navigate(['/forecast']));
         }
-        return isAuthenticated;
+        return !isAuthenticated;
     }
 }

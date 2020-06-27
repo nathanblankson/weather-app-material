@@ -1,39 +1,47 @@
+// Angular dependencies
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+// Local files
 import { AuthGuard } from '@core/guards/auth/auth.guard';
+import { IsLoggedGuard } from '@core/guards/is-logged/is-logged.guard';
 
 const routes: Routes = [
     {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login'
+    },
+    {
         path: 'login',
-        loadChildren: './+login/login.module#LoginModule',
-        canActivate: [AuthGuard]
+        loadChildren: () => import('./+login/login.module').then(mod => mod.LoginModule),
+        canActivate: [IsLoggedGuard]
     },
     {
         path: 'register',
-        loadChildren: './+register/register.module#RegisterModule',
-        canActivate: [AuthGuard]
+        loadChildren: () => import('./+register/register.module').then(mod => mod.RegisterModule),
+        canActivate: [IsLoggedGuard]
     },
     {
         path: 'forecast',
-        loadChildren: './+forecast/forecast.module#ForecastModule',
-        canLoad: [AuthGuard]
+        loadChildren: () => import('./+forecast/forecast.module').then(mod => mod.ForecastModule),
+        canActivate: [AuthGuard]
     },
     {
         path: 'favourites',
-        loadChildren: './+favourites/favourites.module#FavouritesModule',
-        canLoad: [AuthGuard]
+        loadChildren: () => import('./+favourites/favourites.module').then(mod => mod.FavouritesModule),
+        canActivate: [AuthGuard]
     },
     {
         path: 'settings',
-        loadChildren: './+settings/settings.module#SettingsModule',
-        canLoad: [AuthGuard]
+        loadChildren: () => import('./+settings/settings.module').then(mod => mod.SettingsModule),
+        canActivate: [AuthGuard]
     },
     {
-        path: '',
-        redirectTo: 'forecast',
+        path: '**',
         pathMatch: 'full',
-    },
+        redirectTo: 'login'
+    }
 ];
 
 @NgModule({
