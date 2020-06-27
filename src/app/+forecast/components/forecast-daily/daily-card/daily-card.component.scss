@@ -10,15 +10,16 @@
     cursor: pointer;
 
     div:not(:last-child) {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     &__icon {
         display: flex;
         justify-content: center;
 
-        img {
-            width: 90px;
+        object {
+            width: 80px;
+            fill: #062639;
         }
     }
 
