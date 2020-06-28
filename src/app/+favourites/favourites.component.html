@@ -1,5 +1,9 @@
 <app-navigation-wrapper>
-    <div class="favourites">
-        <app-favourite-locations></app-favourite-locations>
+    <div class="container">
+        <div class="title">
+            <i class="material-icons">star</i>
+            <span>Favourites</span>
+        </div>
+        <app-favourite-locations [favourites]="(favourites)"></app-favourite-locations>
     </div>
 </app-navigation-wrapper>

@@ -1,15 +1,5 @@
 <div class="favourites">
-    <!-- Recent/Most Used/Pinned -->
-
-    <!-- A-Z -->
-    <!-- A ----- -->
-
-
-    <!-- B ----- -->
-
-
-    <div class="">A</div>
-    <div class="">
-
+    <div class="favourites__cards">
+        <app-location-card *ngFor="let favourite of favourites" [favourite]="favourite"></app-location-card>
     </div>
 </div>

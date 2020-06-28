@@ -1,0 +1,11 @@
+.favourites {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+
+    &__cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
