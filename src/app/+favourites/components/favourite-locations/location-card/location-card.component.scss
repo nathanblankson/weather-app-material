@@ -5,8 +5,9 @@
     .favourite {
         display: flex;
         align-items: center;
-        padding: 10px;
+        padding: 15px;
         background-color: lightblue;
+        cursor: pointer;
 
         .info {
             width: 100%;
@@ -22,6 +23,10 @@
             &__temperature {
                 font-size: 36px;
             }
+        }
+
+        &:hover {
+            background-color: #33364117;
         }
     }
 }
