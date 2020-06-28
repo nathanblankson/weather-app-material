@@ -1,0 +1,27 @@
+:host {
+    min-width: 300px;
+    margin: 0 20px 20px 0;
+
+    .favourite {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: lightblue;
+
+        .info {
+            width: 100%;
+
+            div:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            &__description {
+                font-size: 22px;
+            }
+
+            &__temperature {
+                font-size: 36px;
+            }
+        }
+    }
+}
