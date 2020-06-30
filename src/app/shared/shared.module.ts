@@ -26,7 +26,6 @@ import { FormatTemperaturePipe } from './pipes/format-temperature/format-tempera
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
-
         // Pipes
         FormatTemperaturePipe
     ],
