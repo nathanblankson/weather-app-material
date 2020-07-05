@@ -5,21 +5,21 @@
         <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
             <div class="row">
                 <mat-form-field class="register__field">
-                    <input matInput placeholder="Firstname" formControlName="firstname">
-                    <mat-error *ngIf="registerForm.controls.firstname.invalid">Please enter a firstname</mat-error>
+                    <input matInput placeholder="First Name" formControlName="firstName">
+                    <mat-error *ngIf="registerForm.controls.firstName.invalid">Please enter a First Name</mat-error>
                 </mat-form-field>
 
                 <div class="spacer"></div>
 
                 <mat-form-field class="register__field">
-                    <input matInput placeholder="Lastname" formControlName="lastname">
-                    <mat-error *ngIf="registerForm.controls.lastname.invalid">Please enter a lastname</mat-error>
+                    <input matInput placeholder="Last Name" formControlName="lastName">
+                    <mat-error *ngIf="registerForm.controls.lastName.invalid">Please enter a Last Name</mat-error>
                 </mat-form-field>
             </div>
 
             <mat-form-field class="register__field">
                 <input matInput placeholder="Email" formControlName="email">
-                <mat-error *ngIf="registerForm.controls.email.invalid">Please enter an email address</mat-error>
+                <mat-error *ngIf="registerForm.controls.email.invalid">Please enter an Email Address</mat-error>
             </mat-form-field>
 
             <mat-form-field class="register__field">
@@ -30,7 +30,7 @@
                     matTooltipPosition="right">
                     {{show ? 'visibility_off' : 'visibility'}}
                 </mat-icon>
-                <mat-error *ngIf=" registerForm.controls.password.invalid">Please enter a password</mat-error>
+                <mat-error *ngIf=" registerForm.controls.password.invalid">Please enter a Password</mat-error>
             </mat-form-field>
 
             <button mat-raised-button color="primary" class="register__field" type="submit">
