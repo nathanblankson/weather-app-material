@@ -9,7 +9,8 @@ import {
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatRadioModule
 } from '@angular/material';
 
 @NgModule({
@@ -23,7 +24,8 @@ import {
         MatListModule,
         MatIconModule,
         MatAutocompleteModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatRadioModule
     ],
 })
 export class MaterialModule { }
