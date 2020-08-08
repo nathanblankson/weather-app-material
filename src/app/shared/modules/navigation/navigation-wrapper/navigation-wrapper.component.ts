@@ -5,8 +5,7 @@ import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
-
-import { LayoutSelectors, ToggleSidenav, CloseSidenav, OpenSidenav } from '@store/index';
+import { LayoutSelectors } from '@store/index';
 
 @Component({
     selector: 'app-navigation-wrapper',
