@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Local files
 import { MaterialModule } from './modules/material/material.module';
 import { FormatTemperaturePipe } from './pipes/format-temperature/format-temperature.pipe';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
     imports: [
@@ -29,6 +30,6 @@ import { FormatTemperaturePipe } from './pipes/format-temperature/format-tempera
         // Pipes
         FormatTemperaturePipe
     ],
-    declarations: [FormatTemperaturePipe]
+    declarations: [FormatTemperaturePipe, SnackbarComponent]
 })
 export class SharedModule { }
