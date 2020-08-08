@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
-
 import { AuthService } from '@core/services/auth/auth.service';
 import { defaultAuthState, AuthStateModel } from './auth-state.model';
 import { LoginRequest, LoginFailure, LoginSuccess, Logout, RegisterRequest, RegisterFailure, RegisterSuccess } from './auth.actions';
+import { SnackbarOpen } from '../notifications';
 
 @State<AuthStateModel>({
     name: 'Auth',
@@ -23,18 +23,18 @@ export class AuthState {
         });
         return this._authService.login(action.payload.data).subscribe(
             res => dispatch(new LoginSuccess({ user: res.user, token: res.token })),
-            err => dispatch(new LoginFailure(err))
+            err => dispatch(new LoginFailure({ error: err.error.message }))
         )
     }
 
     @Action(LoginFailure)
-    loginFailure({ patchState }: StateContext<AuthStateModel>, action: LoginFailure) {
+    loginFailure({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginFailure) {
         patchState({
             loading: false,
             loaded: false,
             failed: true
         });
-        console.log(action.payload.error);
+        dispatch(new SnackbarOpen({ message: action.payload.error, action: 'CLOSE' }));
         return null;
     }
 
