@@ -28,7 +28,9 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
         FormsModule,
         ReactiveFormsModule,
         // Pipes
-        FormatTemperaturePipe
+        FormatTemperaturePipe,
+        // Components
+        SnackbarComponent
     ],
     declarations: [FormatTemperaturePipe, SnackbarComponent]
 })

@@ -4,7 +4,7 @@ import { Navigate } from '@ngxs/router-plugin';
 import { AuthService } from '@core/services/auth/auth.service';
 import { defaultAuthState, AuthStateModel } from './auth-state.model';
 import { LoginRequest, LoginFailure, LoginSuccess, Logout, RegisterRequest, RegisterFailure, RegisterSuccess } from './auth.actions';
-import { SnackbarOpen } from '../notifications';
+import { SnackbarOpen } from '../snackbar';
 
 @State<AuthStateModel>({
     name: 'Auth',

@@ -2,19 +2,19 @@
 import { AuthState } from './auth';
 import { LayoutState } from './layout';
 import { ForecastState } from './forecast';
-import { NotificationsState } from './notifications';
+import { SnackbarState } from './snackbar';
 
 // Still allow other modules to take what they need, eg action & selectors
 export * from './auth';
 export * from './router';
 export * from './layout';
 export * from './forecast';
-export * from './notifications';
+export * from './snackbar';
 
 // rolls up our states into one const
 export const appState = [
     AuthState,
     LayoutState,
     ForecastState,
-    NotificationsState
+    SnackbarState
 ];
