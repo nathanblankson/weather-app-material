@@ -1,9 +1,13 @@
+// Angular dependencies
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+
+// Other dependencies
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
+// Local files
 import { ForecastRequest } from '@store/forecast';
 
 @Component({
@@ -12,10 +16,9 @@ import { ForecastRequest } from '@store/forecast';
     styleUrls: ['./forecast-search.component.scss']
 })
 export class ForecastSearchComponent implements OnInit {
-    forecastSearchForm: FormGroup;
-
-    options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
-    filteredOptions$: Observable<string[]>;
+    public forecastSearchForm: FormGroup;
+    public options: string[] = ['London, GB', 'Athens, GR', 'Moscow, RU'];
+    public filteredOptions$: Observable<string[]>;
 
     constructor(private _fb: FormBuilder, private _store: Store) { }
 

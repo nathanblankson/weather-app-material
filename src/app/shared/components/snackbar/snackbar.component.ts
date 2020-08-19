@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatSnackBarRef } from '@angular/material';
+import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { Store } from '@ngxs/store';
+import { SnackbarClose } from '../../../store/snackbar';
 
 @Component({
     selector: 'app-snackbar',
@@ -8,30 +11,22 @@ import { MatSnackBarRef } from '@angular/material';
 })
 export class SnackbarComponent implements OnInit {
 
-    /** The message to be shown in the snack bar. */
     public message: string;
-
-    /** The label for the button in the snack bar. */
     public action: string;
 
-    /** The instance of the component making up the content of the snack bar. */
-    snackBarRef: MatSnackBarRef<SnackbarComponent>;
+    private snackBarRef: MatSnackBarRef<SnackbarComponent>;
 
-    constructor() {
-        this.message = 'ABC';
-        this.action = 'CLOSE';
-    }
+    constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any, private _store: Store) { }
 
-    /** If the action button should be shown. */
     get hasAction(): boolean { return !!this.action; }
 
-    /** Dismisses the snack bar. */
-    dismiss(): void {
-        console.log('abc');
-        this.snackBarRef.dismiss();
+    onClickAction(): void {
+        this._store.dispatch(new SnackbarClose());
     }
 
     ngOnInit() {
+        this.message = this.data.message;
+        this.action = this.data.action;
     }
 
 }

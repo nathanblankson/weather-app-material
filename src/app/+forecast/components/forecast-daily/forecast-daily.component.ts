@@ -6,9 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./forecast-daily.component.scss']
 })
 export class ForecastDailyComponent implements OnInit {
-
     @Input()
-    dailyForecast;
+    public dailyForecast;
 
     // TODO: Requires paid access for hourly breakdown
     selectedIndex = 0;

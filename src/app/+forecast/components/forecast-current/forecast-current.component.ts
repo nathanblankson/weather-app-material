@@ -1,3 +1,4 @@
+// Angular dependencies
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,10 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ForecastCurrentComponent implements OnInit {
     @Input()
-    currentForecast: any;
-
+    public currentForecast: any;
     @Input()
-    location: any;
+    public location: any;
 
     constructor() { }
 

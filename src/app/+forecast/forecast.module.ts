@@ -9,7 +9,7 @@ import { ForecastComponent } from './forecast.component';
 import { ForecastSearchComponent } from './components/forecast-search/forecast-search.component';
 import { ForecastCurrentComponent } from './components/forecast-current/forecast-current.component';
 import { ForecastDailyComponent } from './components/forecast-daily/forecast-daily.component';
-import { DailyCardComponent } from './components/forecast-daily/daily-card/daily-card.component';
+import { ForecastDailyCardComponent } from './components/forecast-daily-card/forecast-daily-card.component';
 import { ForecastHourlyComponent } from './components/forecast-hourly/forecast-hourly.component';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ForecastHourlyComponent } from './components/forecast-hourly/forecast-h
         ForecastSearchComponent,
         ForecastCurrentComponent,
         ForecastDailyComponent,
-        DailyCardComponent,
+        ForecastDailyCardComponent,
         ForecastHourlyComponent
     ]
 })

@@ -8,14 +8,14 @@ import { SnackbarService } from '../../core/services/snackbar/snackbar.service';
     defaults: defaultSnackbarState
 })
 export class SnackbarState {
-    constructor(private _SnackbarService: SnackbarService) { }
+    constructor(private _snackbarService: SnackbarService) { }
 
     @Action(SnackbarOpen)
     snackbarOpen({ patchState }: StateContext<SnackbarStateModel>, action: SnackbarOpen) {
         patchState({
             showSnackbar: true
         });
-        this._SnackbarService.openSnackbar(action.payload.message, action.payload.action, action.payload.config);
+        this._snackbarService.openSnackbar(action.payload.message, action.payload.action, action.payload.config);
     }
 
     @Action(SnackbarClose)
@@ -23,6 +23,6 @@ export class SnackbarState {
         patchState({
             showSnackbar: false
         })
-        this._SnackbarService.closeSnackbar();
+        this._snackbarService.closeSnackbar();
     }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterComponent } from './register.component';
+import { ForecastDailyCardComponent } from './forecast-daily-card.component';
 
-describe('RegisterComponent', () => {
-    let component: RegisterComponent;
-    let fixture: ComponentFixture<RegisterComponent>;
+describe('ForecastDailyCardComponent', () => {
+    let component: ForecastDailyCardComponent;
+    let fixture: ComponentFixture<ForecastDailyCardComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [RegisterComponent]
+            declarations: [ForecastDailyCardComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(RegisterComponent);
+        fixture = TestBed.createComponent(ForecastDailyCardComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

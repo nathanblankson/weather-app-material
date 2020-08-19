@@ -1,8 +1,12 @@
+// Angular dependencies
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+// Other dependencies
 import { Store } from '@ngxs/store';
 import { LoginRequest } from '@store/auth/auth.actions';
 
+// Other files
 import { AuthDTO } from '@core/models';
 
 @Component({
@@ -11,7 +15,7 @@ import { AuthDTO } from '@core/models';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    loginForm: FormGroup;
+    public loginForm: FormGroup;
 
     constructor(private _fb: FormBuilder, private _store: Store) { }
 

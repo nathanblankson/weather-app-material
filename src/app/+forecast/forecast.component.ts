@@ -1,6 +1,11 @@
+// Angular dependencies
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+// Other dependencies
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
+
+// Local files
 import { ForecastSelectors, ForecastStateModel } from '@store/forecast';
 
 @Component({

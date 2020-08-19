@@ -32,6 +32,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
         // Components
         SnackbarComponent
     ],
-    declarations: [FormatTemperaturePipe, SnackbarComponent]
+    declarations: [FormatTemperaturePipe, SnackbarComponent],
+    entryComponents: [SnackbarComponent]
 })
 export class SharedModule { }

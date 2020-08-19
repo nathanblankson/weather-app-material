@@ -1,4 +1,7 @@
+// Angular dependencies
 import { Component, OnInit } from '@angular/core';
+
+// Other dependencies
 import { Store } from '@ngxs/store';
 import { ForecastRequest } from '@store/index';
 import { Navigate } from '@ngxs/router-plugin';

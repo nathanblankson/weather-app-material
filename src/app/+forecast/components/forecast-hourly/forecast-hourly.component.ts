@@ -1,3 +1,4 @@
+// Angular dependencies
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./forecast-hourly.component.scss']
 })
 export class ForecastHourlyComponent implements OnInit {
-    showSummary = true;
+    public showSummary = true;
 
     constructor() { }
 

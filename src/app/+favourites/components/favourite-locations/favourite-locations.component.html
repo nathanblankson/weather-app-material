@@ -1,10 +1,10 @@
 <div class="favourites">
     <!-- TODO: Search -->
     <div class="favourites__cards">
-        <app-location-card
+        <app-favourite-location-card
             *ngFor="let favourite of favourites"
             [favourite]="favourite"
             (favouriteClicked)="onFavouriteClicked($event)">
-        </app-location-card>
+        </app-favourite-location-card>
     </div>
 </div>

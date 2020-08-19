@@ -7,7 +7,7 @@ import { NavigationModule } from '@shared/modules/navigation/navigation.module';
 import { FavouritesRoutingModule } from './favourites-routing.module';
 import { FavouritesComponent } from './favourites.component';
 import { FavouriteLocationsComponent } from './components/favourite-locations/favourite-locations.component';
-import { LocationCardComponent } from './components/favourite-locations/location-card/location-card.component';
+import { FavouriteLocationCardComponent } from './components/favourite-location-card/favourite-location-card.component';
 
 @NgModule({
     imports: [
@@ -18,7 +18,7 @@ import { LocationCardComponent } from './components/favourite-locations/location
     declarations: [
         FavouritesComponent,
         FavouriteLocationsComponent,
-        LocationCardComponent
+        FavouriteLocationCardComponent
     ]
 })
 export class FavouritesModule { }

@@ -1,14 +1,14 @@
-<div class="container">
+<div class="snackbar">
     <!-- Icon -->
-    <span class="icon">
+    <div class="snackbar__icon">
         ICON
-    </span>
+    </div>
     <!-- Message -->
-    <span class="message">
+    <div class="snackbar__message">
         {{ message }}
-    </span>
+    </div>
     <!-- Action -->
-    <span class="action">
+    <div class="snackbar__action" (click)="onClickAction()">
         {{ action }}
-    </span>
+    </div>
 </div>

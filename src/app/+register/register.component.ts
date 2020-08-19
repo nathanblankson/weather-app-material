@@ -1,7 +1,11 @@
+// Angular dependencies
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+// Other dependencies
 import { Store } from '@ngxs/store';
 
+// Local files
 import { AuthDTO } from '@core/models';
 import { RegisterRequest } from '@store/auth/auth.actions';
 
@@ -12,10 +16,8 @@ import { RegisterRequest } from '@store/auth/auth.actions';
     encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
-
-    registerForm: FormGroup;
-
-    show: boolean = false;
+    public registerForm: FormGroup;
+    public show: boolean = false;
 
     constructor(private _fb: FormBuilder, private _store: Store) { }
 

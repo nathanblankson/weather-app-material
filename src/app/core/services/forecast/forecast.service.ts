@@ -1,8 +1,12 @@
+// Angular dependencies
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+
+// Other dependencies
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
+// Local files
 import { environment } from '@environment/environment';
 
 @Injectable({

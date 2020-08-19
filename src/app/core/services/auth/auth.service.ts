@@ -1,7 +1,11 @@
+// Angular dependencies
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+// Other dependencies
 import { Observable } from 'rxjs';
 
+// Local files
 import { environment } from '@environment/environment';
 import { AuthType, AuthDTO, AuthRO } from '@core/models';
 
