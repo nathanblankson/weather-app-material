@@ -5,12 +5,12 @@ import { AuthStateModel } from './auth-state.model';
 
 export class AuthSelectors {
     @Selector([AuthState])
-    static token(state: AuthStateModel) {
+    static token(state: AuthStateModel): string | null {
         return state.token;
     }
 
     @Selector([AuthState])
-    static isAuthenticated(state: AuthStateModel) {
+    static isAuthenticated(state: AuthStateModel): boolean {
         return state.isAuthenticated;
     }
 }
