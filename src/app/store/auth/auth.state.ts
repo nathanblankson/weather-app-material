@@ -15,75 +15,74 @@ export class AuthState {
     constructor(private _authService: AuthService) { }
 
     @Action(LoginRequest)
-    loginRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginRequest) {
+    loginRequest({ patchState, dispatch }: StateContext<AuthStateModel>, { payload }: LoginRequest) {
         patchState({
             loading: true,
             loaded: false,
             failed: false
         });
-        return this._authService.login(action.payload.data).subscribe(
+        return this._authService.login(payload.data).subscribe(
             res => dispatch(new LoginSuccess({ user: res.user, token: res.token })),
             err => dispatch(new LoginFailure({ error: err.error.message }))
         )
     }
 
     @Action(LoginFailure)
-    loginFailure({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginFailure) {
+    loginFailure({ patchState, dispatch }: StateContext<AuthStateModel>, { payload }: LoginFailure): void {
         patchState({
             loading: false,
             loaded: false,
             failed: true
         });
-        dispatch(new SnackbarOpen({ message: action.payload.error, action: 'CLOSE' }));
-        return null;
+        dispatch(new SnackbarOpen({ message: payload.error, action: 'CLOSE' }));
     }
 
     @Action(LoginSuccess)
-    loginSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, action: LoginSuccess) {
+    loginSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, { payload }: LoginSuccess) {
         patchState({
             loading: false,
             loaded: true,
             failed: false,
             isAuthenticated: true,
-            user: action.payload.user,
-            token: action.payload.token
+            user: payload.user,
+            token: payload.token
         });
         dispatch(new Navigate(['/forecast']));
     }
 
     @Action(RegisterRequest)
-    registerRequest({ patchState, dispatch }: StateContext<AuthStateModel>, action: RegisterRequest) {
+    registerRequest({ patchState, dispatch }: StateContext<AuthStateModel>, { payload }: RegisterRequest) {
         patchState({
             loading: true,
             loaded: false,
             failed: false
         });
-        return this._authService.register(action.payload.data).subscribe(
+        return this._authService.register(payload.data).subscribe(
             res => dispatch(new RegisterSuccess({ user: res.user, token: res.token })),
             err => dispatch(new RegisterFailure(err))
         )
     }
 
     @Action(RegisterFailure)
-    registerFailure({ patchState }: StateContext<AuthStateModel>, action: RegisterFailure) {
+    registerFailure({ patchState }: StateContext<AuthStateModel>, { payload }: RegisterFailure) {
         patchState({
             loading: false,
             loaded: false,
             failed: true
         });
-        console.log(action.payload.error);
+        console.log(payload.error);
         return null;
     }
 
     @Action(RegisterSuccess)
-    registerSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, action: RegisterSuccess) {
+    registerSuccess({ patchState, dispatch }: StateContext<AuthStateModel>, { payload }: RegisterSuccess) {
         patchState({
             loading: false,
             loaded: true,
             failed: false,
             isAuthenticated: true,
-            user: action.payload.user,
-            token: action.payload.token
+            user: payload.user,
+            token: payload.token
         });
         dispatch(new Navigate(['/forecast']));
     }

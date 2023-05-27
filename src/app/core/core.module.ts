@@ -10,10 +10,11 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 // Local files
 import { appState } from '@store/index';
 import { CustomRouterStateSerializer } from '@store/router/router-state.serializer';
+import { environment } from '@environment/environment';
 
 @NgModule({
     imports: [
-        NgxsModule.forRoot(appState),
+        NgxsModule.forRoot(appState, { developmentMode: !environment.production }),
         NgxsStoragePluginModule.forRoot({
             key: ['Auth', 'Forecast']
         }),
